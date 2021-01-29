@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversation:
   - character: {fileID: 11400000, guid: 5626464c62eefc04c887ba2e64e79b73, type: 2}
-    dialogue: <pause=.9>awdf wdw dnwdn wqo ndw
+    dialogue: '<pause=.9>diawdwn <size=90> '
   - character: {fileID: 11400000, guid: 4159aef1dce6c8842bd44dc73f61fc49, type: 2}
     dialogue: hmmmmmmmmmmmmm
+  - character: {fileID: 11400000, guid: 4159aef1dce6c8842bd44dc73f61fc49, type: 2}
+    dialogue: 
