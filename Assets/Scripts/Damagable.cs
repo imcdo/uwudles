@@ -7,19 +7,56 @@ namespace uwudles
 {
     public class Damagable : MonoBehaviour
     {
-        UnityEvent Healthlistener = new UnityEvent();
 
-        [SerializeField] private int _startHp = 10;
-        public int Hp { set; get; }
+        [SerializeField]  private int _hp = 10;
+
+        public int Hp 
+        { 
+            set 
+            {
+                _hp = Mathf.Clamp(value, 0, MaxHp);
+                HpListener.Invoke();
+            }
+            get
+            {
+                return _hp;
+            }
+        }
+
+        public int MaxHp { get; private set; }
+        public UnityEvent HpListener = new UnityEvent();
+
+        public void UpdateMaxHp(int maxHp)
+        {
+            if (Hp == MaxHp)
+                Hp = MaxHp = maxHp;
+            else
+                MaxHp = maxHp;
+        
+        }
 
         private void Awake()
         {
-            Hp = _startHp;
+            MaxHp = Hp;
+        }
+        
+        public void Damage(int damage)
+        {
+            Hp -= damage;
         }
 
-        void OnValidate()
+        public void Heal(int health)
         {
-            Hp = _startHp;
+            Hp += health;
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                print("hurt");
+                Damage(1);
+            }
         }
     }
 }
