@@ -1,0 +1,52 @@
+*.txt text eol=lf
+*.sh text eol=lf
+*.xml text eol=lf
+*.yml text eol=lf
+*.py text diff=python eol=lf
+*.json text eol=lf
+*.md text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+*.asmdef text eol=lf
+
+*.dll                filter=lfs diff=lfs merge=lfs merge=unityyamlmerge -text
+*.so                 filter=lfs diff=lfs merge=lfs merge=unityyamlmerge -text
+*.a                 filter=lfs diff=lfs merge=lfs merge=unityyamlmerge -text
+
+# Unity
+*.cs                 text diff=csharp eol=lf
+*.cginc              text eol=lf
+*.shader             text eol=lf
+
+# Unity YAML
+*.mat                merge=unityyamlmerge eol=lf
+*.anim               merge=unityyamlmerge eol=lf
+*.unity              merge=unityyamlmerge eol=lf
+*.prefab             merge=unityyamlmerge eol=lf
+*.asset              merge=unityyamlmerge eol=lf
+*.meta               merge=unityyamlmerge eol=lf
+*.controller         merge=unityyamlmerge eol=lf
+
+# "physic" for 3D but "physics" for 2D
+*.physicMaterial2D   merge=unityyamlmerge eol=lf
+*.physicMaterial     merge=unityyamlmerge eol=lf
+*.physicsMaterial2D  merge=unityyamlmerge eol=lf
+*.physicsMaterial    merge=unityyamlmerge eol=lf
+
+# Using Git LFS
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+*.png filter=lfs diff=lfs merge=lfs -text
+*.psd filter=lfs diff=lfs merge=lfs -text
+*.wav filter=lfs diff=lfs merge=lfs -text
+*.ogg filter=lfs diff=lfs merge=lfs -text
+*.mp3 filter=lfs diff=lfs merge=lfs -text
+*.bank filter=lfs diff=lfs merge=lfs -text
+
+# Collapse Unity-generated files on GitHub
+*.meta              linguist-generated eol=lf
+
+## 3D Object
+*.FBX filter=lfs diff=lfs merge=lfs -text
+*.fbx filter=lfs diff=lfs merge=lfs -text
+*.blend filter=lfs diff=lfs merge=lfs -text
+*.obj filter=lfs diff=lfs merge=lfs -text
