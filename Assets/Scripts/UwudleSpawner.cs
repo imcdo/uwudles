@@ -27,12 +27,21 @@ namespace uwudles
             
             GameObject newWudleObj = GameObject.Instantiate(uwudlePrefab, spawnLocation.position, spawnLocation.rotation, null) as GameObject;
             Uwudle newWudle = newWudleObj.GetComponent<Uwudle>();
-            PlayerStats.Instance.PartyMembers.Add(newWudle);
+            
             FollowBrain followBrain = newWudle.GetComponent<FollowBrain>();
-            followBrain.Target = PlayerStats.Instance.transform;
+            if(PlayerStats.Instance.NumPartyMembers > 0)
+            {
+                followBrain.Target = PlayerStats.Instance.PartyMembers[PlayerStats.Instance.NumPartyMembers - 1].transform;
+            }
+            else
+            {
+                followBrain.Target = PlayerStats.Instance.transform;
+            }
+            PlayerStats.Instance.PartyMembers.Add(newWudle);
             UI.FaceTransform faceTransform = newWudle.GetComponentInChildren<UI.FaceTransform>();
             faceTransform.Target = PlayerStats.Instance.transform;
             newWudleObj.SetActive(true);
+            Debug.Log("Spawned an Uwudle, numPartyMembers: " + PlayerStats.Instance.NumPartyMembers);
         }
     }
 }
