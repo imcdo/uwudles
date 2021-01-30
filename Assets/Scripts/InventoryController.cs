@@ -15,8 +15,8 @@ namespace uwudles {
 
         void Update() {
             playerScroll();
-            updateUI();
 
+            updateHealth();
         }
 
         private void playerScroll(){
@@ -34,18 +34,10 @@ namespace uwudles {
             }
         }
 
-        private void updateUI(){
+        private void updateHealth(){
             for(int i = 0; i < uwudles.Length; i++){
-                GameObject uwu = uwudles[i];
-                if(uwu != null){
-                    PlayerCanvas.enableUwudleUI(i, true);
-                    Uwudle u = uwu.GetComponent<Uwudle>();
-                    PlayerCanvas.setUwudleHealth(i, u.Health.Hp);
-                    PlayerCanvas.setSpriteAt(i, u.Portrait);
-                }else{
-                    PlayerCanvas.enableUwudleUI(i, false);
-                }
-                
+                Uwudle u = uwudles[i].GetComponent<Uwudle>();
+                PlayerCanvas.setUwudleHealth(i, u.Health.Hp);
             }
         }
 
@@ -57,8 +49,7 @@ namespace uwudles {
         }
 
         /// <summary>
-        /// Returns an array of the active Uwudles. Can direclty modify the array
-        /// to change the active Uwudles. UI will be automatically updated too.
+        /// Returns an array of the active Uwudles
         /// </summary>
         public GameObject[] getUwudles(){
             return uwudles;
