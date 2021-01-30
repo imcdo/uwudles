@@ -31,6 +31,8 @@ namespace uwudles
     {
         private NavMeshAgent _agent;
         private Transform _target;
+        private float _tRadius = 0;
+        private float _aRadius = 0;
         public float BehindFactor { set; get; } // between 0 and 1
         public float Spacing { set; get; }
 
@@ -38,6 +40,43 @@ namespace uwudles
         {
             _agent = agent;
             _target = target;
+            Bounds? tb = GetMeshBounds(_target);
+            if (tb.HasValue)
+                _tRadius = (tb.Value.max - tb.Value.min).magnitude / 2;
+
+            Bounds? ab = GetMeshBounds(_target);
+            if (ab.HasValue)
+                _aRadius = (ab.Value.max - ab.Value.min).magnitude / 2;
+        }
+
+        private Bounds? GetMeshBounds(Component mb)
+        {
+            var tsm = mb.GetComponent<SkinnedMeshRenderer>();
+            if (tsm == null)
+                tsm = mb.GetComponentInChildren<SkinnedMeshRenderer>();
+            if (tsm != null)
+                return tsm.sharedMesh.bounds;
+
+            var tcol = mb.GetComponent<Collider>();
+            if (tcol == null)
+                tcol = mb.GetComponentInChildren<Collider>();
+            if (tcol != null)
+            {
+                Vector3 scaler =
+                    new Vector3(1 / tcol.transform.lossyScale.x, 1 / tcol.transform.lossyScale.y, 1 / tcol.transform.lossyScale.z);
+                Bounds ret = new Bounds();
+                ret.min = Vector3.Scale(tcol.bounds.min, scaler);
+                ret.max = Vector3.Scale(tcol.bounds.max, scaler);
+                return ret;
+            }
+
+            var tmf = mb.GetComponent<MeshFilter>();
+            if (tmf == null)
+                tmf = mb.GetComponentInChildren<MeshFilter>();
+            if (tmf != null)
+                return tmf.sharedMesh.bounds;
+
+            return null;
         }
 
         public override void Move()
@@ -48,8 +87,13 @@ namespace uwudles
 
         private void MoveAgent()
         {
-            Vector3 destination = _target.position - (_target.forward * BehindFactor +
-                (_target.position - _agent.transform.position).normalized * (1 - BehindFactor)).normalized * Spacing;
+            float tRadius = Mathf.Max(_target.lossyScale.x, _target.lossyScale.y, _target.lossyScale.z) * _tRadius;
+            float aRadius = Mathf.Max(_agent.transform.lossyScale.x, _agent.transform.lossyScale.y, _agent.transform.lossyScale.z) * _aRadius;
+            Debug.Log(aRadius);
+            Vector3 followDirection = -(_target.forward * BehindFactor +
+                (_target.position - _agent.transform.position).normalized * (1 - BehindFactor)).normalized;
+
+            Vector3 destination = _target.position + followDirection * Spacing + followDirection * (tRadius + aRadius);
 
             _agent.destination = destination;
         }

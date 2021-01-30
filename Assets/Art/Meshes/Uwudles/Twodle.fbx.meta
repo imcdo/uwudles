@@ -15,6 +15,15 @@ ModelImporter:
   - first:
       74: -1082524627088371670
     second: TwodleRig|Walk.Twodle
+  - first:
+      74: 2031986247538334153
+    second: TwodleRig|Twodle.Idle
+  - first:
+      74: -8064805449307654021
+    second: TwodleRig|Twodle.Walk
+  - first:
+      74: -7744824122668229365
+    second: TwodleRig|Twoble.Attack
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -44,37 +53,8 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: TwodleRig|Attack.Twodle
-      takeName: TwodleRig|Attack.Twodle
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 49
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: TwodleRig|Idle.Twodle
-      takeName: TwodleRig|Idle.Twodle
+      name: TwodleRig|Twodle.Idle
+      takeName: TwodleRig|Twodle.Idle
       internalID: 0
       firstFrame: 0
       lastFrame: 39
@@ -102,11 +82,40 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: TwodleRig|Walk.Twodle
-      takeName: TwodleRig|Walk.Twodle
+      name: TwodleRig|Twodle.Walk
+      takeName: TwodleRig|Twodle.Walk
       internalID: 0
       firstFrame: 0
       lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: TwodleRig|Twoble.Attack
+      takeName: TwodleRig|Twoble.Attack
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 49
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
