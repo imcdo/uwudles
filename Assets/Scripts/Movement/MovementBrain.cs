@@ -43,5 +43,10 @@ namespace uwudles
             if (MovementState == MovementStrategy.MovementState.Moving)
                 Strategy.Move();
         }
+
+        public void OnDestroy()
+        {
+            Strategy.Dispose();
+        }
     }
 }
