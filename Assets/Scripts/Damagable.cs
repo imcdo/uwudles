@@ -9,7 +9,6 @@ namespace uwudles
     {
 
         [SerializeField]  private int _hp = 10;
-
         public int Hp 
         { 
             set 
