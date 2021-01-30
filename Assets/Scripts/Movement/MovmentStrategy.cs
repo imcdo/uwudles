@@ -105,6 +105,7 @@ namespace uwudles
             {
                 await RoamTask(_cancel.Token);
             }
+            catch (TaskCanceledException) { }
             catch (Exception e)
             {
                 Debug.LogException(e);
@@ -115,7 +116,7 @@ namespace uwudles
         {
             while (!cancel.IsCancellationRequested)
             {
-                Vector3 dir = UnityEngine.Random.insideUnitSphere;
+                Vector3 dir = UnityEngine.Random.insideUnitSphere * RoamRange;
                 Vector3 destination = _agent.transform.position + dir;
                 _agent.destination = destination;
                 await Task.Delay(RoamTime, cancel);
