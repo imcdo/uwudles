@@ -123,17 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &964800012 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7008556492929393472, guid: 4893ee5a020a382468a09771c866a8a8, type: 3}
-  m_PrefabInstance: {fileID: 2026595392}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f4b197b34ac9a14491669c470964823, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &995464419
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,40 +378,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 50894109999688043, guid: 4893ee5a020a382468a09771c866a8a8, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 50894110012526693, guid: 4893ee5a020a382468a09771c866a8a8, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 50894110012526693, guid: 4893ee5a020a382468a09771c866a8a8, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 964800012}
-    - target: {fileID: 50894110012526693, guid: 4893ee5a020a382468a09771c866a8a8, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ActivateDialogue
-      objectReference: {fileID: 0}
-    - target: {fileID: 50894110012526693, guid: 4893ee5a020a382468a09771c866a8a8, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: InterfaceManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 50894110012526693, guid: 4893ee5a020a382468a09771c866a8a8, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 11400000, guid: 0ada3ff8d86e08a42b8be30d69b01e08, type: 2}
-    - target: {fileID: 50894110012526693, guid: 4893ee5a020a382468a09771c866a8a8, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: DialogueData, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 50894110193661460, guid: 4893ee5a020a382468a09771c866a8a8, type: 3}
-      propertyPath: m_Text
-      value: Test Dialogue
-      objectReference: {fileID: 0}
-    - target: {fileID: 2961075258603277551, guid: 4893ee5a020a382468a09771c866a8a8, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: m_SizeDelta.x
+      value: 641.88
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4893ee5a020a382468a09771c866a8a8, type: 3}
