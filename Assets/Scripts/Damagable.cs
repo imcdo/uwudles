@@ -48,14 +48,5 @@ namespace uwudles
         {
             Hp += health;
         }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                print("hurt");
-                Damage(1);
-            }
-        }
     }
 }
