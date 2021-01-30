@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1711109941963951464}
   - component: {fileID: 1711109941963951465}
   - component: {fileID: 3443094770729008001}
+  - component: {fileID: 5345223002453666689}
   m_Layer: 0
   m_Name: TestFollowUwudle
   m_TagString: Untagged
@@ -165,6 +166,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
   _spacing: 2
+--- !u!114 &5345223002453666689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711109941963951476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d47a59a76ccd4d4ba4d68586a980db1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleForSize: 10
 --- !u!1001 &1711109942674911904
 PrefabInstance:
   m_ObjectHideFlags: 0
