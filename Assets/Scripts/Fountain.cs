@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 namespace uwudles
@@ -19,6 +20,7 @@ namespace uwudles
         {
             fountainMenuObject.SetActive(false);
             SacrificeFrames = GetComponentsInChildren<SacrificeMenuPortrait>();
+            Debug.Log(SacrificeFrames.Length);
             uwudleSpawner = GetComponent<UwudleSpawner>();
             foreach(SacrificeMenuPortrait portraitFrame in SacrificeFrames)
             {
@@ -52,6 +54,7 @@ namespace uwudles
             Debug.Log("Clicked Sacrifice");
             fountainMenuObject.SetActive(false);
             sacrificeMenuObject.SetActive(true);
+            SetupSacrificeCanvas();
         }
 
         public void OnRollClicked()
@@ -84,9 +87,12 @@ namespace uwudles
 
         private void SetupSacrificeCanvas()
         {
-            for(int i = 0; i < PlayerStats.Instance.NumPartyMembers; ++i)
+            Debug.Log(PlayerStats.Instance.NumPartyMembers);
+            for(int i = 0; i < PlayerStats.Instance.NumPartyMembers - 1; ++i)
             {
                 SacrificeFrames[i].gameObject.SetActive(true);
+                Image portrait = SacrificeFrames[i].GetComponentInChildren<Image>();
+                portrait.sprite = PlayerStats.Instance.PartyMembers[i].Portrait;
             }
         }
         
