@@ -49,7 +49,7 @@ namespace uwudles
                 _aRadius = (ab.Value.max - ab.Value.min).magnitude / 2;
         }
 
-        private Bounds? GetMeshBounds(Component mb)
+        public static Bounds? GetMeshBounds(Component mb)
         {
             var tsm = mb.GetComponent<SkinnedMeshRenderer>();
             if (tsm == null)

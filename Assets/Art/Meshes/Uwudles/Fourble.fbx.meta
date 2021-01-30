@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: 9ccf901d710e13f44a6c0fa51912bdba
+guid: 56f66056b26f4874397dbf8fa1667d5e
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
-      74: -1444930928955404269
-    second: Headphones|Action
+      74: -5784870937237073614
+    second: FourbleRig|Fourble.Attack
   - first:
-      74: -4548344001236221878
-    second: Headphones|Idle.Fourble
+      74: 4336446218805631311
+    second: FourbleRig|Fourble.Idle
   - first:
-      74: -9153110854550781033
-    second: Headphones|Fourble.Idle
+      74: -5871899729395759567
+    second: FourbleRig|Fourble.Walk
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -103,7 +103,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   additionalBone: 0
   userData: 
