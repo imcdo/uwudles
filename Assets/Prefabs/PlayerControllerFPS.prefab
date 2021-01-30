@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 738646681744756155}
   - component: {fileID: 738646681744756157}
   - component: {fileID: 2776930374587807076}
+  - component: {fileID: 931871463}
   m_Layer: 9
   m_Name: PlayerControllerFPS
   m_TagString: Untagged
@@ -221,6 +222,24 @@ MonoBehaviour:
   enemyUwudleLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &931871463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738646681744756154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fbc79c07d7007e4fb68e688f4d44730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startUwudles:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  uwudleUIPrefab: {fileID: 3784154728248593809, guid: 2fa68de8afa54144a8a41058236486e6, type: 3}
+  uwudleUIContainer: {fileID: 0}
 --- !u!1 &738646681763345175
 GameObject:
   m_ObjectHideFlags: 0

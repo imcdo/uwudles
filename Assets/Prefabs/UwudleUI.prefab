@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6479201694865912753}
+  - component: {fileID: 3784154728248593809}
   m_Layer: 5
   m_Name: UwudleUI
   m_TagString: Untagged
@@ -37,6 +38,21 @@ RectTransform:
   m_AnchoredPosition: {x: 400, y: -400}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3784154728248593809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825910117937702283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e84a05230ba8af740991f1d0f3b8dbb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portrait: {fileID: 5949471410429480323}
+  HealthBar: {fileID: 7612006772810440033}
+  uwudle: {fileID: 0}
 --- !u!1 &4011055017555087454
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,9 +210,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 10
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 10
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
