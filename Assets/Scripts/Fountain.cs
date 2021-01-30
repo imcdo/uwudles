@@ -13,9 +13,19 @@ namespace uwudles
         [SerializeField]
         private GameObject sacrificeMenuObject;
         private bool menuUp = false;
+        private SacrificeMenuPortrait[] SacrificeFrames;
+        private UwudleSpawner uwudleSpawner;
         void Start()
         {
             fountainMenuObject.SetActive(false);
+            SacrificeFrames = GetComponentsInChildren<SacrificeMenuPortrait>();
+            uwudleSpawner = GetComponent<UwudleSpawner>();
+            foreach(SacrificeMenuPortrait portraitFrame in SacrificeFrames)
+            {
+                portraitFrame.gameObject.SetActive(false);
+            }
+            
+            
         }
         public void DoAction()
         {
@@ -55,24 +65,38 @@ namespace uwudles
             else{
                 if(PlayerStats.Instance.NumGuts >= summonCost)
                 {
+                    // if()
                     PlayerStats.Instance.NumGuts -= summonCost;
                     Debug.Log("Yuh" + " " + PlayerStats.Instance.NumGuts + " Guts Left");
+                    uwudleSpawner.SpawnUwudle();
+                    OnQuitMenuClicked();
                 }
                 else
                 {
                     Debug.Log("Nuh" + " " + PlayerStats.Instance.NumGuts + " Guts Left");
                     if(PlayerStats.Instance.NumPartyMembers > 0)
                     {
-                        
+
                     }
                 }
+            }
+        }
 
+        private void SetupSacrificeCanvas()
+        {
+            for(int i = 0; i < PlayerStats.Instance.NumPartyMembers; ++i)
+            {
+                SacrificeFrames[i].gameObject.SetActive(true);
             }
         }
         
         public void OnQuitMenuClicked()
         {
             fountainMenuObject.SetActive(false);
+            foreach(SacrificeMenuPortrait portraitFrame in SacrificeFrames)
+            {
+                portraitFrame.gameObject.SetActive(false);
+            }
             sacrificeMenuObject.SetActive(false);
             menuUp = false;
             PlayerStats.Instance.MouseLook.enabled = true;

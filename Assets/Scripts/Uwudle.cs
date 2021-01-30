@@ -22,7 +22,7 @@ namespace uwudles
 
         private MovementBrain _mBrain;
         public MovementBrain Movement => _mBrain ? _mBrain : _mBrain = GetComponent<MovementBrain>();
-
+        public Sprite Portrait;
         private void Start()
         {
             Movement.Move();
