@@ -8,7 +8,7 @@ namespace uwudles {
         [SerializeField] private LayerMask enemyUwudleLayer;
         private Ray cameraRay;
         private GameObject cursor;
-        private GameObject targetUwudle;
+
         void Update() {
             // send out a ray from the center of the screen  
             RaycastHit hit;
@@ -19,8 +19,7 @@ namespace uwudles {
                 if(cursor != null){
                    cursor.SetActive(false); 
                 }  
-                targetUwudle = hit.collider.gameObject;
-                Transform statCanvas = targetUwudle.transform.Find("StatsCanvas");
+                Transform statCanvas = hit.collider.transform.Find("StatsCanvas");
                 cursor = statCanvas.Find("Cursor").gameObject;
                 cursor.SetActive(true);
             }else{
@@ -28,17 +27,7 @@ namespace uwudles {
                 if(cursor != null){
                    cursor.SetActive(false); 
                 }   
-                targetUwudle = null;
             }
-        }
-
-        /// <summary>
-        /// Returns the enemy uwudle that the player is targeting/looking at
-        /// </summary>
-        /// <returns>The GameObject that represents the targeted enemy
-        /// uwudle. Will return null if no enemy is being targeted</returns>
-        public GameObject getTargetUwudle(){
-            return targetUwudle;
         }
 
         private void OnDrawGizmos() {
