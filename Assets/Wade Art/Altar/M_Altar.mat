@@ -7,31 +7,39 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Leaves_01
-  m_Shader: {fileID: -6465566751694194690, guid: 238610c2440ab204ea11e7dc3db25c58, type: 3}
-  m_ShaderKeywords: _ALPHATEST_ON _EMISSION
-  m_LightmapFlags: 2
+  m_Name: M_Altar
+  m_Shader: {fileID: -6465566751694194690, guid: 50cbc383a113aba4c9d573c21468f5e9, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 1
+  m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_400db00990654841ab6d0fce1521661c:
-        m_Texture: {fileID: 2800000, guid: 92e66a12068bc3a418fe5de875f426f9, type: 3}
+    - Texture2D_035019d6598149968ebac61d2db1ca84:
+        m_Texture: {fileID: 2800000, guid: 19e9708dbb77a4b41b758dba0f2dced8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_4489a695659d42a199f82ee7e03ad9b9:
+        m_Texture: {fileID: 2800000, guid: acf4b5cd5886a3f448296fa1061c57c6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_6ec095fd099446de863a931d0dc092ec:
+        m_Texture: {fileID: 2800000, guid: d09db4692c5acd147a08cd8e670b0f22, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_9f2b95a815744e70821ad724f15686c4:
+        m_Texture: {fileID: 2800000, guid: d5ed3a37983354640a77d6e8165b6180, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 3e31a34831367b4408ff6e529442201d, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _ClearCoatMap:
+    - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -48,10 +56,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ExtraTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -75,10 +79,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SubsurfaceTex:
-        m_Texture: {fileID: 2800000, guid: 3e31a34831367b4408ff6e529442201d, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -92,34 +92,13 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Boolean_495fdd39974c4b49b084265d23de4ca2: 1
-    - Boolean_db6a438c1ff14444bea6bfb1843ff702: 1
-    - Boolean_f47aa6f2271a4295a56be04577fa60d8: 0
-    - Vector1_16ca4288dbcd4af0b91a726ed1de4407: 3.43
-    - Vector1_2358801aadd34778bf9ad2988fe096b4: 0.4
-    - Vector1_2d503b14ba254eaf80f9d6641f5e4061: 1.62
-    - Vector1_5cfc9a6e8e7c493a8e657f1ba67f4da8: 0.62
-    - Vector1_6670ae081f454c858be4bba6b6bba0f4: 0
-    - Vector1_77b3a73045fa4c2c9ef7b2813f428627: 0.46
-    - Vector1_86d0c5272e3b42c7a054011206726f27: 0.1
-    - Vector1_95b752555fb248efa70e515e06c2a1ff: 0
-    - Vector1_9b8c7a9a0cd740cfb7084d379a36a623: 0.2
-    - Vector1_aa83e7c4edd4492e959383abd46c77e4: 0.31
-    - Vector1_da2a2cef8e2e4263be4a6e8d08b7017f: 2
-    - Vector1_e3c850784eff48ed92d11fa5f1b4ea31: 0.2
-    - Vector1_f671aaa8f2e145c5b6400f7f408fa1c6: 0.05
-    - _AO: 2.4
-    - _AlphaClip: 1
-    - _BaseLight: 0.35
-    - _BillboardKwToggle: 0
-    - _BillboardShadowFade: 0.5
+    - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
-    - _ClearCoat: 0
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _Cull: 0
-    - _Cutoff: 0.528
+    - _Cull: 2
+    - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -127,46 +106,26 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _HueVariationKwToggle: 0
     - _Metallic: 0
-    - _Mode: 0
-    - _NormalMapKwToggle: 0
-    - _Occlusion: 7.5
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Smoothness: 0.07
+    - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _SquashAmount: 1
     - _SrcBlend: 1
-    - _SubsurfaceIndirect: 0.25
-    - _SubsurfaceKwToggle: 0
     - _Surface: 0
-    - _TwoSided: 2
-    - _UVSec: 0
-    - _WindQuality: 4
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_b08a0f0d73704528b408293c3713e35e: {r: 0.97199994, g: 0.76774526, b: 0.23522396, a: 0}
-    - Color_f0aac68df4224e589b2c63aef78a157f: {r: 0.050980374, g: 0.6862745, b: 0.4491237, a: 0}
-    - Vector2_8106f3ecb9f2443d87a081feec76748b: {r: 1, g: 0, b: 0, a: 0}
-    - Vector2_b2ec223ff0f94da9a82b9f9768b41257: {r: 0.75, g: 0.75, b: 0, a: 0}
-    - Vector2_d32226cce1ef4ed586f38bfc99ba8d04: {r: 0.25, g: 0.25, b: 0, a: 0}
-    - Vector3_466ca9c855344894b9a162019bff0ef1: {r: 0, g: 0, b: 0, a: 0}
-    - Vector3_5fe221f32ee84de4a8749c68448a6abe: {r: 0.5, g: 0.5, b: 0, a: 0}
-    - _BaseColor: {r: 0.41117835, g: 0.8301887, b: 0.5882735, a: 1}
-    - _Color: {r: 0.15566038, g: 0.6226415, b: 0.24638408, a: 1}
-    - _EmissionColor: {r: 0, g: 0.01886791, b: 0, a: 1}
-    - _HueVariationColor: {r: 1, g: 0.5, b: 0, a: 0.1}
+    - Vector4_3e28f7a19b594948845cf3075c534e98: {r: 0, g: 1, b: 0.24, a: 3.41}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _SubsurfaceColor: {r: 0.01375042, g: 0.9716981, b: 0.17957321, a: 1}
-    - _TreeInstanceColor: {r: 1, g: 1, b: 1, a: 1}
-    - _TreeInstanceScale: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &8351782111924962440
+--- !u!114 &6305530227868600815
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
