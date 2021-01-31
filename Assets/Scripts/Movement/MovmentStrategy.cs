@@ -89,7 +89,7 @@ namespace uwudles
         {
             float tRadius = Mathf.Max(_target.lossyScale.x, _target.lossyScale.y, _target.lossyScale.z) * _tRadius;
             float aRadius = Mathf.Max(_agent.transform.lossyScale.x, _agent.transform.lossyScale.y, _agent.transform.lossyScale.z) * _aRadius;
-            Debug.Log(aRadius);
+            // Debug.Log(aRadius);
             Vector3 followDirection = -(_target.forward * BehindFactor +
                 (_target.position - _agent.transform.position).normalized * (1 - BehindFactor)).normalized;
 

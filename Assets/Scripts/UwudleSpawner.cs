@@ -40,6 +40,7 @@ namespace uwudles
             PlayerStats.Instance.PartyMembers.Add(newWudle);
             UI.FaceTransform faceTransform = newWudle.GetComponentInChildren<UI.FaceTransform>();
             faceTransform.Target = PlayerStats.Instance.transform;
+            newWudleObj.name = "uwudle" + PlayerStats.Instance.NumPartyMembers;
             newWudleObj.SetActive(true);
             Debug.Log("Spawned an Uwudle, numPartyMembers: " + PlayerStats.Instance.NumPartyMembers);
         }
