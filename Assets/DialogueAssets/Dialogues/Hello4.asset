@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5905ab222b975484794373156f70cada, type: 3}
+  m_Name: Hello4
+  m_EditorClassIdentifier: 
+  conversation:
+  - character: {fileID: 11400000, guid: d17e20e394c85904db9d6c36f199a64c, type: 2}
+    dialogue: <pause=.2>I'm by this wonderful, decorative structure!
+  - character: {fileID: 11400000, guid: 3a42411ca17404942b71099c6d9f7dd5, type: 2}
+    dialogue: 

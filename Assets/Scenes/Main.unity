@@ -16527,6 +16527,30 @@ PrefabInstance:
       propertyPath: voicebox
       value: 
       objectReference: {fileID: 1103469579}
+    - target: {fileID: 1099655286, guid: 573ac53c334415945bf239de2c2f0511, type: 3}
+      propertyPath: hellos.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1099655286, guid: 573ac53c334415945bf239de2c2f0511, type: 3}
+      propertyPath: hellos.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: d4a932160b011e743bcc262afed0a079, type: 2}
+    - target: {fileID: 1099655286, guid: 573ac53c334415945bf239de2c2f0511, type: 3}
+      propertyPath: hellos.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 69f4d8986d0d6704eb788e0fe339399a, type: 2}
+    - target: {fileID: 1099655286, guid: 573ac53c334415945bf239de2c2f0511, type: 3}
+      propertyPath: helloDelays.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1099655286, guid: 573ac53c334415945bf239de2c2f0511, type: 3}
+      propertyPath: helloDelays.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1099655286, guid: 573ac53c334415945bf239de2c2f0511, type: 3}
+      propertyPath: helloDelays.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 738646681744756154, guid: 573ac53c334415945bf239de2c2f0511, type: 3}
       propertyPath: m_Name
       value: PlayerControllerFPS
@@ -16574,6 +16598,18 @@ PrefabInstance:
     - target: {fileID: 738646681744756156, guid: 573ac53c334415945bf239de2c2f0511, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6899525309227705858, guid: 573ac53c334415945bf239de2c2f0511, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.00030517584
+      objectReference: {fileID: 0}
+    - target: {fileID: 6899525309227705858, guid: 573ac53c334415945bf239de2c2f0511, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6899525309227705858, guid: 573ac53c334415945bf239de2c2f0511, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 207
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 573ac53c334415945bf239de2c2f0511, type: 3}

@@ -9,14 +9,17 @@ public class GameScript : MonoBehaviour
     public static GameScript Instance => _instance ? _instance : _instance = FindObjectOfType<GameScript>();
     public GameObject candyBar;
     public TextMeshProUGUI candyQtyObj;
+    public GameObject candyShowcase;
 
     // DIALOGUE
     [SerializeField]
     private InterfaceManager voicebox;
-    [SerializeField]
-    private DialogueData introDialogue;
-    public GameObject candyShowcase;
-    public float introDialogueDelay = 1.0f;
+    
+    [Header("Opening cutscene")]
+
+    public DialogueData[] hellos;
+    public float[] helloDelays;
+    public int helloIdx = 0;
 
     [Header("donut touch")]
     public int candyCount = 0;
@@ -29,6 +32,8 @@ public class GameScript : MonoBehaviour
 
     void StartGame()
     {
+        helloIdx = 0;
+
         // Candy
         SetCandy(0);
         candyBar.SetActive(false);
@@ -36,16 +41,33 @@ public class GameScript : MonoBehaviour
         // Begin dialogue
         candyShowcase.SetActive(false);
 
-        StartCoroutine(IntroDelay());
+        TryHello();
     }
 
-    IEnumerator IntroDelay()
+    void TryHello()
     {
-        yield return new WaitForSeconds(introDialogueDelay);
-        Debug.Log("intro pls");
 
-        voicebox.onDialogueEnd.AddListener(EndIntro);
-        voicebox.ActivateDialogue(introDialogue);
+        if (helloIdx >= hellos.Length)
+        {
+            EndHellos();
+        }
+        else
+        {
+            StartCoroutine(HelloLoop());
+        }
+    }
+
+    IEnumerator HelloLoop()
+    {
+        yield return new WaitForSeconds(helloDelays[helloIdx]);
+        voicebox.onDialogueEnd.AddListener(TryHello);
+        voicebox.ActivateDialogue(hellos[helloIdx]);
+        helloIdx += 1;
+    }
+
+    void EndHellos()
+    {
+        Debug.Log("done with hellos");
     }
 
     void EndIntro()
