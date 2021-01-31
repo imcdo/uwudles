@@ -24,7 +24,7 @@ public class InterfaceManager : MonoBehaviour
     private bool inDialogue;
     private bool dialogueFinished;
 
-    private string dialogueStartPauseTxt = "<pause=.9>";
+    private string dialogueStartPauseTxt = "<pause=.2>";
     private Vector2 startPos;
 
     [System.Serializable] public class DialogueEndEvent : UnityEvent { }
