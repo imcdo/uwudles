@@ -9,10 +9,15 @@ namespace uwudles
     {
         private Uwudle _uwudle;
         public Uwudle Uwudle => _uwudle ? _uwudle : _uwudle = GetComponent<Uwudle>();
-        
+
+        private void Awake()
+        {
+            WildUwudleManager.Instance?.Add(this);
+        }
+
         private void OnDestroy()
         {
-            WildUwudleManager.Instance.Remove(this);
+            WildUwudleManager.Instance?.Remove(this);
         }
     }
 }
