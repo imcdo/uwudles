@@ -20,6 +20,7 @@ namespace uwudles
             Uwudle newWudle = _builder.BuildRandom();
             newWudle.transform.position = spawnLocation.position;
             newWudle.transform.rotation = spawnLocation.rotation;
+            newWudle.NavAgent.Warp(spawnLocation.position);
             
             if(PlayerStats.Instance.NumPartyMembers > 0)
                 newWudle.Movement.Strategy = new FollowStrategy(newWudle.NavAgent, PlayerStats.Instance.PartyMembers[PlayerStats.Instance.NumPartyMembers - 1].transform);
