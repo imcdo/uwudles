@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversation:
   - character: {fileID: 11400000, guid: d17e20e394c85904db9d6c36f199a64c, type: 2}
-    dialogue: <pause=.2>Over here by this completely innocuous stone structure.
+    dialogue: <pause=.2>...hello?
   - character: {fileID: 11400000, guid: 3a42411ca17404942b71099c6d9f7dd5, type: 2}
     dialogue: 

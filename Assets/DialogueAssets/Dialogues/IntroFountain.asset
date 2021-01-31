@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5905ab222b975484794373156f70cada, type: 3}
+  m_Name: IntroFountain
+  m_EditorClassIdentifier: 
+  conversation:
+  - character: {fileID: 11400000, guid: d17e20e394c85904db9d6c36f199a64c, type: 2}
+    dialogue: <pause=.2>Ah ha, you found me.
+  - character: {fileID: 11400000, guid: 3a42411ca17404942b71099c6d9f7dd5, type: 2}
+    dialogue: Ta-da!
+  - character: {fileID: 11400000, guid: 3a42411ca17404942b71099c6d9f7dd5, type: 2}
+    dialogue: My name's Maple!
+  - character: {fileID: 11400000, guid: 3a42411ca17404942b71099c6d9f7dd5, type: 2}
+    dialogue: I live in this altar... well, for now.
+  - character: {fileID: 11400000, guid: 3a42411ca17404942b71099c6d9f7dd5, type: 2}
+    dialogue: I saw you wandering around, and, y'know, you look like someone who
+      really appreciates adventure.
+  - character: {fileID: 11400000, guid: 3a42411ca17404942b71099c6d9f7dd5, type: 2}
+    dialogue: I'm sure you saw those creatures wandering around.
+  - character: {fileID: 11400000, guid: 3a42411ca17404942b71099c6d9f7dd5, type: 2}
+    dialogue: They're called "Uwudles."
+  - character: {fileID: 11400000, guid: 3a42411ca17404942b71099c6d9f7dd5, type: 2}
+    dialogue: They may not look it, but they can become very strong with the right
+      training... and the right trainer.
+  - character: {fileID: 11400000, guid: 3a42411ca17404942b71099c6d9f7dd5, type: 2}
+    dialogue: And on top of that, if you collect enough of their bodies-- I mean,
+      their friendship-- you can gain unthinkable power.
+  - character: {fileID: 11400000, guid: 3a42411ca17404942b71099c6d9f7dd5, type: 2}
+    dialogue: Almost enough power to rip open a dimension to home.
+  - character: {fileID: 11400000, guid: 3a42411ca17404942b71099c6d9f7dd5, type: 2}
+    dialogue: Or. Uh. Enough power to... explore the world. Make more friends. Become
+      the very best.
+  - character: {fileID: 11400000, guid: 3a42411ca17404942b71099c6d9f7dd5, type: 2}
+    dialogue: The problem is that those Uwudles out in the wild are no good for training
+      and friendship. Way too hostile.
+  - character: {fileID: 11400000, guid: 3a42411ca17404942b71099c6d9f7dd5, type: 2}
+    dialogue: However I have the power to help you out right here.
+  - character: {fileID: 11400000, guid: 3a42411ca17404942b71099c6d9f7dd5, type: 2}
+    dialogue: 
