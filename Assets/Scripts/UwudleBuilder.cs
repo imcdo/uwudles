@@ -72,6 +72,7 @@ namespace uwudles
                                                  PlantSixpleSkins, WetSixpleSkins, HotSixpleSkins };
 
             // TODO: Set element to 
+            uwudle.Element = (Element)elementId;
             Material[] mat = ma[3 * baseId + elementId];
             uwudle.SetSkin(mat[_rand.Next(mat.Length)]);
             AudioSource source = uwudle.gameObject.AddComponent<AudioSource>();

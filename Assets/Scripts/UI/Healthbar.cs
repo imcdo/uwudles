@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace uwudles.UI
 {
-    [RequireComponent(typeof(RectTransform))]
+    [RequireComponent(typeof(Image))]
     public class Healthbar : MonoBehaviour
     {
         private RectTransform _rt;

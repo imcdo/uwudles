@@ -8,7 +8,7 @@ using UnityEngine.Events;
 
 namespace uwudles
 {
-    public enum Element { Fire, Water, Grass }
+    public enum Element { Plant, Wet, Hot }
 
     [RequireComponent(typeof(Damagable))]
     [RequireComponent(typeof(NavMeshAgent))]
@@ -16,6 +16,20 @@ namespace uwudles
     [RequireComponent(typeof(Animator))]
     public class Uwudle : MonoBehaviour
     {
+        public static readonly Dictionary<Element, Color> ElementColors = new Dictionary<Element, Color>() {
+            { Element.Plant, Color.green },
+            { Element.Wet, Color.blue },
+            { Element.Hot, Color.red }
+        };
+
+
+        public static readonly Dictionary<Element, Dictionary<Element, float>> ElementDamageModifiers = new Dictionary<Element, Dictionary<Element, float>>()
+        {
+            { Element.Plant , new Dictionary<Element, float>(){ { Element.Plant, .75f}, { Element.Wet, 1.5f }, { Element.Hot, .75f} } },
+            { Element.Wet , new Dictionary<Element, float>(){ { Element.Plant, .75f}, { Element.Wet, .75f }, { Element.Hot, 1.5f} } },
+            { Element.Hot , new Dictionary<Element, float>(){ { Element.Plant, 1.5f }, { Element.Wet, .75f }, { Element.Hot, .75f} } }
+        };
+
         private Damagable _health;
         public Damagable Health => _health ? _health : _health = GetComponent<Damagable>();
         private Coroutine _goToRoutine;
@@ -26,6 +40,8 @@ namespace uwudles
         private MovementBrain _mBrain;
         public MovementBrain Movement => _mBrain ? _mBrain : _mBrain = GetComponent<MovementBrain>();
         public Sprite Portrait;
+
+        public Element Element;
 
         [SerializeField] private Transform _hatMountPoint;
         [SerializeField] private SkinnedMeshRenderer _smr;
@@ -45,6 +61,12 @@ namespace uwudles
                 return UnityEngine.Random.Range(_MinSDamage, _MaxDamage);
             }
 
+        }
+
+        public int CalcDamage(Element otherElement)
+        {
+            float mod = ElementDamageModifiers[this.Element][otherElement];
+            return (int)(mod * Damage);
         }
 
         private Animator _animator;
@@ -81,6 +103,7 @@ namespace uwudles
             _animator.SetTrigger("Attack");
             GetComponent<AudioSource>().Play();
             ProjectileFire p = Instantiate(_projectilePrefab, _projectileSpawn.transform.position, _projectileSpawn.transform.rotation);
+            p._projectileColor = ElementColors[Element];
             p.Shoot(target.position);
         }
 

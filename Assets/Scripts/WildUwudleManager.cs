@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = System.Random;
 
 namespace uwudles
@@ -47,6 +48,7 @@ namespace uwudles
         private void SpawnWildUwudle(int spawnId)
         {
             Uwudle uwudle = _builder.BuildRandom();
+            uwudle.GetComponentInChildren<UI.Healthbar>().GetComponent<Image>().color = Color.blue;
             uwudle.NavAgent.Warp(_spawnPoints[spawnId].position);
             uwudle.transform.rotation = _spawnPoints[spawnId].rotation;
             var wild = uwudle.gameObject.AddComponent<WildUwudle>();

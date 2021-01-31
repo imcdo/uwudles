@@ -431,6 +431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scaleForSize: 800
+  minScale: 0.4
 --- !u!1 &2969913406751759026
 GameObject:
   m_ObjectHideFlags: 0

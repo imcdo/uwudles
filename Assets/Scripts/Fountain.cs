@@ -98,7 +98,7 @@ namespace uwudles
                 OnSacrificeClicked();
             }
             else{
-                if(PlayerStats.Instance.NumGuts >= summonCost)
+                if(PlayerStats.Instance.NumGuts >= 10)
                 {
                     // if()
                     GameScript.Instance.AddCandy(-10);

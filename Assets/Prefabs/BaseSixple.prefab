@@ -792,6 +792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scaleForSize: 800
+  minScale: 0.4
 --- !u!136 &1054931911032364323
 CapsuleCollider:
   m_ObjectHideFlags: 0
