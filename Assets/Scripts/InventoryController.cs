@@ -62,5 +62,9 @@ namespace uwudles {
             orderedUwudles.Remove(uwudle);
             Destroy(ui);
         }
+
+        public Uwudle getActiveUwudle(){
+            return activeUwu;
+        }
     }
 }
