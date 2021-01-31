@@ -8,6 +8,8 @@ namespace uwudles {
         [SerializeField] private PlayerCursor cursor;
         [SerializeField] private bool inBattle;
         [SerializeField] private float _spacing = 3;
+        public Poof poofPrefab;
+
         private Battle currentBattle;
         private void Update() {
             // send active uwudle
@@ -39,6 +41,11 @@ namespace uwudles {
             // ensure that teleport position is infront of the target uwudle
             Vector3 tpPos = target.transform.position;
             tpPos += boundsOffset * target.transform.forward;
+            if (poofPrefab != null)
+            {
+                Instantiate(poofPrefab, ourUwudle.transform.position, Quaternion.identity);
+                Instantiate(poofPrefab, tpPos, Quaternion.identity);
+            }
             ourUwudle.NavAgent.Warp(tpPos);
             
             ourUwudle.NavAgent.updateRotation = false;
