@@ -237,10 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fbc79c07d7007e4fb68e688f4d44730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startUwudles:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  startUwudles: []
   uwudleUIPrefab: {fileID: 3784154728248593809, guid: 2fa68de8afa54144a8a41058236486e6, type: 3}
   uwudleUIContainer: {fileID: 0}
 --- !u!114 &394674866
@@ -287,6 +284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursor: {fileID: 2776930374587807076}
   inBattle: 0
+  _spacing: 3
 --- !u!1 &738646681763345175
 GameObject:
   m_ObjectHideFlags: 0
