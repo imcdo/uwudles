@@ -79,7 +79,7 @@ namespace uwudles
         {
             Debug.Log("attack animation");
             _animator.SetTrigger("Attack");
-
+            GetComponent<AudioSource>().Play();
             ProjectileFire p = Instantiate(_projectilePrefab, _projectileSpawn.transform.position, _projectileSpawn.transform.rotation);
             p.Shoot(target.position);
         }

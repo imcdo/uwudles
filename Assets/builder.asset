@@ -37,3 +37,11 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 772aa747955c0684aa23840d99aa73d8, type: 2}
   HotSixpleSkins:
   - {fileID: 2100000, guid: bae9e6211f4729747bd91601c2052feb, type: 2}
+  attackSounds:
+  - {fileID: 8300000, guid: 1690e9f84dd4b4545ac7cb7e1bf94d82, type: 3}
+  - {fileID: 8300000, guid: de2cf660c1d346a4489eca835044ecac, type: 3}
+  - {fileID: 8300000, guid: c6344da1b734a244da74765aa58b5aea, type: 3}
+  - {fileID: 8300000, guid: 749ceed5d4d09ae47b73c439c3e61c5b, type: 3}
+  - {fileID: 8300000, guid: d78ae2b391f19e946a8de1d5db0e3399, type: 3}
+  - {fileID: 8300000, guid: fbbd4c526d85c4245b813ccaf7b06642, type: 3}
+  - {fileID: 8300000, guid: fbd263c047c08134589867ddb2bbd2e3, type: 3}

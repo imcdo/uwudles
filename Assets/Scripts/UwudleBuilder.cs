@@ -25,6 +25,8 @@ namespace uwudles
         public Material[] WetSixpleSkins;
         public Material[] HotSixpleSkins;
 
+
+        public AudioClip[] attackSounds;
         private Random _rand = new Random();
 
         public Uwudle BuildRandom()
@@ -72,7 +74,11 @@ namespace uwudles
             // TODO: Set element to 
             Material[] mat = ma[3 * baseId + elementId];
             uwudle.SetSkin(mat[_rand.Next(mat.Length)]);
-
+            AudioSource source = uwudle.gameObject.AddComponent<AudioSource>();
+            source.clip = attackSounds[UnityEngine.Random.Range(0, attackSounds.Length)];
+            source.spatialBlend = 1f;
+            source.volume = 1f;
+            source.pitch = 1f;
             return uwudle;
         }
     }
