@@ -222,7 +222,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e05365228fb50546ac452c3c32aee22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 5
+  range: 8
+  radius: 1
   enemyUwudleLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -350,7 +351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5128564317899591173, guid: fe6b771bc82bb764882e7a52d8171296, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 83.29999
+      value: 83.299805
       objectReference: {fileID: 0}
     - target: {fileID: 5501785103221927374, guid: fe6b771bc82bb764882e7a52d8171296, type: 3}
       propertyPath: m_fontSize
@@ -443,6 +444,10 @@ PrefabInstance:
     - target: {fileID: 6242312025108115197, guid: fe6b771bc82bb764882e7a52d8171296, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993813361844540997, guid: fe6b771bc82bb764882e7a52d8171296, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.0043945312
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe6b771bc82bb764882e7a52d8171296, type: 3}
