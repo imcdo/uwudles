@@ -31,7 +31,7 @@ namespace uwudles
 
         public Transform HatMountPoint => _hatMountPoint;
 
-        public int Damage => 10;
+        public int Damage => 1;
 
         private Animator _animator;
 

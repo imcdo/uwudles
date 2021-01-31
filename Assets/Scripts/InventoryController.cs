@@ -54,6 +54,11 @@ namespace uwudles {
             ui.uwudle = uwudle;
             ui.transform.SetParent(uwudleUIContainer);
             activeUwudles.Add(uwudle, ui);
+      
+            if(orderedUwudles.Count == 1){
+                currentIndex = 0;
+                activeUwu = orderedUwudles[currentIndex];
+            }
         }
 
         public void removeUwudle(Uwudle uwudle){

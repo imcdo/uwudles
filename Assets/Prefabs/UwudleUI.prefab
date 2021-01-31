@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e84a05230ba8af740991f1d0f3b8dbb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portrait: {fileID: 5949471410429480323}
+  portrait: {fileID: 4996068737147328580}
   HealthBar: {fileID: 7612006772810440033}
   uwudle: {fileID: 0}
 --- !u!1 &4011055017555087454
