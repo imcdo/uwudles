@@ -10,6 +10,12 @@ namespace uwudles
         private Uwudle _uwudle;
         public Uwudle Uwudle => _uwudle ? _uwudle : _uwudle = GetComponent<Uwudle>();
 
+        public void Kill()
+        {
+            Destroy(gameObject);
+            WildUwudleManager.Instance?.UpdateWilds();
+        }
+
         private void Awake()
         {
             WildUwudleManager.Instance?.Add(this);

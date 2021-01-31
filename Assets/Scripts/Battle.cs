@@ -17,7 +17,7 @@ namespace uwudles
 
         public BattlePhase Phase { get; private set; }
 
-        public Battle(Uwudle u1, Uwudle u2, float turnTime = 10)
+        public Battle(Uwudle u1, Uwudle u2, float turnTime = 5)
         {
             _u1 = u1;
             _u2 = u2;

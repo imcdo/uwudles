@@ -28,7 +28,7 @@ namespace uwudles
             PlayerStats.Instance.PartyMembers.Add(newWudle);
 
             UI.FaceTransform faceTransform = newWudle.GetComponentInChildren<UI.FaceTransform>();
-            faceTransform.Target = PlayerStats.Instance.transform;
+            faceTransform.Target = Camera.main.transform;
             newWudle.gameObject.name = "uwudle" + PlayerStats.Instance.NumPartyMembers;
             newWudle.gameObject.SetActive(true);
             Debug.Log("Spawned an Uwudle, numPartyMembers: " + PlayerStats.Instance.NumPartyMembers);

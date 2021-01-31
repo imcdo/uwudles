@@ -8,10 +8,16 @@ namespace uwudles.UI
     {
         public Transform Target;
 
+        private void Awake()
+        {
+            if (Target == null)
+                Target = Camera.main.transform;
+        }
+
         private void Update()
         {
             if (Target)
-                transform.rotation = Quaternion.FromToRotation(Vector3.forward, -Target.forward);
+                transform.LookAt(transform.position + Target.forward);
         }
     }
 }

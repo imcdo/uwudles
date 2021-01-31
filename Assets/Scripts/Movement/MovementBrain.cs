@@ -62,7 +62,7 @@ namespace uwudles
 
         public void OnDestroy()
         {
-            Strategy.Dispose();
+            Strategy?.Dispose();
         }
     }
 }
