@@ -45,9 +45,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   candyBar: {fileID: 7131552597027443038}
   candyQtyObj: {fileID: 962886351935656471}
-  voicebox: {fileID: 0}
-  introDialogue: {fileID: 11400000, guid: d4a932160b011e743bcc262afed0a079, type: 2}
   candyShowcase: {fileID: 4993890742630084485}
+  fountain: {fileID: 0}
+  voicebox: {fileID: 0}
+  hellos: []
+  helloDelays: []
+  helloIdx: 0
   candyCount: 0
 --- !u!1 &211131350362798560
 GameObject:
@@ -206,7 +209,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -309,6 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 5
+  radius: 1
   enemyUwudleLayer:
     serializedVersion: 2
     m_Bits: 64
