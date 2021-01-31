@@ -43,6 +43,7 @@ public class InterfaceManager : MonoBehaviour
         animatedText.onDialogueFinish.AddListener(() => FinishDialogue());
         animatedText.onTextReveal.AddListener(c => PlayVoice(c));
         startPos = dialogueUI.GetComponent<RectTransform>().anchoredPosition;
+        dialogueUI.SetActive(false);
     }
 
     private void Update()

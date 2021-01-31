@@ -17,8 +17,10 @@ public class GameScript : MonoBehaviour
 
     void StartGame()
     {
+        /*
         voicebox.onDialogueEnd.AddListener(EndIntro);
         voicebox.ActivateDialogue(introDialogue);
+        */
     }
 
     void EndIntro()
