@@ -10,6 +10,7 @@ public class GameScript : MonoBehaviour
     public GameObject candyBar;
     public TextMeshProUGUI candyQtyObj;
     public GameObject candyShowcase;
+    public uwudles.Fountain fountain;
 
     // DIALOGUE
     [SerializeField]
@@ -20,6 +21,7 @@ public class GameScript : MonoBehaviour
     public DialogueData[] hellos;
     public float[] helloDelays;
     public int helloIdx = 0;
+    public IEnumerator activeHelloLoop;
 
     [Header("donut touch")]
     public int candyCount = 0;
@@ -33,6 +35,7 @@ public class GameScript : MonoBehaviour
     void StartGame()
     {
         helloIdx = 0;
+        fountain.interactState = uwudles.Fountain.InteractState.Intro;
 
         // Candy
         SetCandy(0);
@@ -46,14 +49,15 @@ public class GameScript : MonoBehaviour
 
     void TryHello()
     {
-
+        voicebox.onDialogueEnd.RemoveListener(TryHello);
         if (helloIdx >= hellos.Length)
         {
             EndHellos();
         }
         else
         {
-            StartCoroutine(HelloLoop());
+            activeHelloLoop = HelloLoop();
+            StartCoroutine(activeHelloLoop);
         }
     }
 
@@ -68,6 +72,13 @@ public class GameScript : MonoBehaviour
     void EndHellos()
     {
         Debug.Log("done with hellos");
+    }
+
+    public void FountainIntro()
+    {
+        StopCoroutine(activeHelloLoop);
+        voicebox.onDialogueEnd.RemoveListener(TryHello);
+        Debug.Log("Time for fountain intro");
     }
 
     void EndIntro()

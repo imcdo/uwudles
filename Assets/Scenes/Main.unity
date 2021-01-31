@@ -16524,12 +16524,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1099655286, guid: 573ac53c334415945bf239de2c2f0511, type: 3}
+      propertyPath: fountain
+      value: 
+      objectReference: {fileID: 1900292051}
+    - target: {fileID: 1099655286, guid: 573ac53c334415945bf239de2c2f0511, type: 3}
       propertyPath: voicebox
       value: 
       objectReference: {fileID: 1103469579}
     - target: {fileID: 1099655286, guid: 573ac53c334415945bf239de2c2f0511, type: 3}
       propertyPath: hellos.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1099655286, guid: 573ac53c334415945bf239de2c2f0511, type: 3}
       propertyPath: hellos.Array.data[0]
@@ -16540,8 +16544,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 69f4d8986d0d6704eb788e0fe339399a, type: 2}
     - target: {fileID: 1099655286, guid: 573ac53c334415945bf239de2c2f0511, type: 3}
+      propertyPath: hellos.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 518838c09245b6e4dbe567abd4819f4a, type: 2}
+    - target: {fileID: 1099655286, guid: 573ac53c334415945bf239de2c2f0511, type: 3}
+      propertyPath: hellos.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: a7456bb9c369af6499d7d220afe6e64d, type: 2}
+    - target: {fileID: 1099655286, guid: 573ac53c334415945bf239de2c2f0511, type: 3}
       propertyPath: helloDelays.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1099655286, guid: 573ac53c334415945bf239de2c2f0511, type: 3}
       propertyPath: helloDelays.Array.data[0]
@@ -16549,6 +16561,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1099655286, guid: 573ac53c334415945bf239de2c2f0511, type: 3}
       propertyPath: helloDelays.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1099655286, guid: 573ac53c334415945bf239de2c2f0511, type: 3}
+      propertyPath: helloDelays.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1099655286, guid: 573ac53c334415945bf239de2c2f0511, type: 3}
+      propertyPath: helloDelays.Array.data[3]
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 738646681744756154, guid: 573ac53c334415945bf239de2c2f0511, type: 3}
@@ -17263,6 +17283,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1900292051 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 268195751574540060, guid: bccdaf9f93b90f84f92ecacc1c4c7b66, type: 3}
+  m_PrefabInstance: {fileID: 505919093}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a76aa38930cda2648acd7a0d5f10b0d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1915124802 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ef719cec2ac35ba4196cf25482081490, type: 3}

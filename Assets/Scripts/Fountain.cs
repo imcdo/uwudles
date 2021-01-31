@@ -7,6 +7,14 @@ namespace uwudles
 {
     public class Fountain : MonoBehaviour , IInteractableObject
     {
+        public enum InteractState
+        {
+            Normal,
+            Intro,
+            None
+        }
+        public InteractState interactState = InteractState.Normal;
+
         [SerializeField]
         private int summonCost;
         [SerializeField]
@@ -43,16 +51,26 @@ namespace uwudles
         }
         public void DoAction()
         {
-            Debug.Log("Hi you interacted with the fountain");
-            
-            menuUp = true;
-            PlayerStats.Instance.MouseLook.enabled = false;
-            PlayerStats.Instance.InMenu = true;
-            Cursor.lockState = CursorLockMode.None;
-            // fountainMenuObject.SetActive(true);
-            fountainDialogueObject.SetActive(true);
-            dialogueScript.onDialogueEnd.AddListener(DialogueEndCheck);
-            dialogueScript.ActivateDialogue(fountainDialogue);
+            switch (interactState)
+            {
+                case InteractState.Normal:
+                    Debug.Log("Hi you interacted with the fountain");
+                    
+                    menuUp = true;
+                    PlayerStats.Instance.MouseLook.enabled = false;
+                    PlayerStats.Instance.InMenu = true;
+                    Cursor.lockState = CursorLockMode.None;
+                    // fountainMenuObject.SetActive(true);
+                    fountainDialogueObject.SetActive(true);
+                    dialogueScript.onDialogueEnd.AddListener(DialogueEndCheck);
+                    dialogueScript.ActivateDialogue(fountainDialogue);
+                    break;
+                case InteractState.Intro:
+                    GameScript.Instance.FountainIntro();
+                    break;
+                default:
+                    break;
+            }
         }
 
         
