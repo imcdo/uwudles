@@ -13,9 +13,17 @@ MonoBehaviour:
   m_Name: FountainDialogue
   m_EditorClassIdentifier: 
   conversation:
-  - character: {fileID: 11400000, guid: 5626464c62eefc04c887ba2e64e79b73, type: 2}
-    dialogue: '<pause=.9>fountain text  <size=90> '
-  - character: {fileID: 11400000, guid: 4159aef1dce6c8842bd44dc73f61fc49, type: 2}
+  - character: {fileID: 11400000, guid: 3a42411ca17404942b71099c6d9f7dd5, type: 2}
+    dialogue: <pause=.2>wheee
+  - character: {fileID: 11400000, guid: 3a42411ca17404942b71099c6d9f7dd5, type: 2}
     dialogue: more fountain text
-  - character: {fileID: 11400000, guid: 4159aef1dce6c8842bd44dc73f61fc49, type: 2}
-    dialogue: final fountain text
+  - character: {fileID: 11400000, guid: 3a42411ca17404942b71099c6d9f7dd5, type: 2}
+    dialogue: final fountain textfinal fountain textfinal fountain textfinal fountain
+      textfinal fountain textfinal fountain textfinal fountain textfinal fountain
+      textfinal fountain textfinal fountain textfinal fountain textfinal fountain
+      textfinal fountain textfinal fountain textfinal fountain textfinal fountain
+      textfinal fountain textfinal fountain textfinal fountain textfinal fountain
+      textfinal fountain textfinal fountain textfinal fountain textfinal fountain
+      textfinal fountain text
+  - character: {fileID: 11400000, guid: 3a42411ca17404942b71099c6d9f7dd5, type: 2}
+    dialogue: 

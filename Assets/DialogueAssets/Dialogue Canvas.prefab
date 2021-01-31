@@ -469,8 +469,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Hello there! Glad to meet you! My name is OAK. People affectionately refer
-    to me as the POK\xE9MON PROFESSOR."
+  m_text: Hello there! Glad to meet you! My name is OAK. People affectionately refer
+    to me as the POKEMON PROFESSOR.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b19aa7bfbe2277544bd7eb0f3aefe459, type: 2}
   m_sharedMaterial: {fileID: -2622233393010194514, guid: b19aa7bfbe2277544bd7eb0f3aefe459, type: 2}
@@ -504,7 +504,7 @@ MonoBehaviour:
   m_fontSizeMin: 0
   m_fontSizeMax: 20
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
