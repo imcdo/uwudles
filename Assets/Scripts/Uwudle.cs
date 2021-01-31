@@ -34,7 +34,18 @@ namespace uwudles
 
         public Transform HatMountPoint => _hatMountPoint;
 
-        public int Damage => 100;
+        [SerializeField] private int _MaxDamage;
+        [SerializeField] private int _MinSDamage;
+        private int _damage;
+        public int Damage {
+            set{
+                _damage = value;
+            }
+            get{
+                return UnityEngine.Random.Range(_MinSDamage, _MaxDamage);
+            }
+
+        }
 
         private Animator _animator;
         private Coroutine _damageRoutine;
