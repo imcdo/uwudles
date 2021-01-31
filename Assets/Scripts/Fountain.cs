@@ -132,7 +132,7 @@ namespace uwudles
                 }
             }
             PlayerStats.Instance.PartyMembers.RemoveAt(uwudleNum);
-            
+            InventoryController.Instance.removeUwudle(uwudleToSacrifice);
             Destroy(uwudleToSacrifice.gameObject);
             OnQuitMenuClicked();
         }
