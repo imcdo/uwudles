@@ -79,6 +79,7 @@ public class InterfaceManager : MonoBehaviour
     public void ActivateDialogue(DialogueData dialogueData)
     {
         
+        ActivateUI();
         animatedText.text = string.Empty;
         raycast.enabled = true;
         inDialogue = true;
@@ -94,7 +95,6 @@ public class InterfaceManager : MonoBehaviour
         {
             currentDialogue = dialogueData;
         }
-        ActivateUI();
         AdjustDialogueData(currentDialogue);
         dialogueUI.transform.DOKill();
         Sequence s = DOTween.Sequence().Append(dialogueUI.GetComponent<RectTransform>().DOAnchorPos(new Vector2(0, 20), 1f).SetEase(Ease.OutCubic));
@@ -110,12 +110,10 @@ public class InterfaceManager : MonoBehaviour
     private void DeactivateUI()
     {
         dialogueUI.SetActive(false);
-        /*
         Sequence s = DOTween.Sequence().Append(dialogueUI.GetComponent<RectTransform>().DOAnchorPos(startPos, 1f)).SetEase(Ease.InCubic);
         s.target = dialogueUI.transform;
         dimScreen.GetComponent<CanvasGroup>().DOFade(0, .7f);
         raycast.enabled = false;
-        */
     }
 
     public void FinishDialogue()

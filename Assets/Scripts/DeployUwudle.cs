@@ -73,7 +73,6 @@ namespace uwudles {
             target.Movement.Move();
 
             ourUwudle.Health.Hp = ourUwudle.Health.MaxHp;
-
             var wild = target.GetComponent<WildUwudle>();
             if (wild && target.Health.Hp == 0){
                 wild.Kill();
