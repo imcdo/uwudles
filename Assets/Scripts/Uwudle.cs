@@ -28,12 +28,16 @@ namespace uwudles
 
         [SerializeField] private Transform _hatMountPoint;
         [SerializeField] private SkinnedMeshRenderer _smr;
+        [SerializeField] private ProjectileFire _projectilePrefab;
+        [SerializeField] private Transform _projectileSpawn;
 
         public Transform HatMountPoint => _hatMountPoint;
 
-        public int Damage => 1;
+        public int Damage => 100;
 
         private Animator _animator;
+        private Coroutine _damageRoutine;
+        [SerializeField]private AnimationCurve _damageRoutineCurve;
 
         private void Awake()
         {
@@ -63,6 +67,31 @@ namespace uwudles
         {
             Debug.Log("attack animation");
             _animator.SetTrigger("Attack");
+
+            ProjectileFire p = Instantiate(_projectilePrefab, _projectileSpawn.transform.position, _projectileSpawn.transform.rotation);
+            p.Shoot(target.position);
+        }
+
+        public void AnimateDamage(int damage, float t)
+        {
+            if (_damageRoutine != null) StopCoroutine(_damageRoutine);
+            _damageRoutine = StartCoroutine(DamageRoutine(Health.Hp - damage, t  * .9f));
+        }
+
+        private IEnumerator DamageRoutine(int hp, float endt)
+        {
+            float t = 0;
+            int startHp = Health.Hp;
+            while (t < endt)
+            {
+                float v = _damageRoutineCurve.Evaluate(t / endt);
+                print(t);
+                print(endt);
+                Health.Hp = Mathf.RoundToInt(Mathf.Lerp(startHp, hp, v));
+                yield return null;
+                t += Time.deltaTime;
+            }
+            Health.Hp = hp;
         }
     }
 }

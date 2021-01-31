@@ -17,7 +17,7 @@ namespace uwudles
 
         public BattlePhase Phase { get; private set; }
 
-        public Battle(Uwudle u1, Uwudle u2, float turnTime = 5)
+        public Battle(Uwudle u1, Uwudle u2, float turnTime = 3)
         {
             _u1 = u1;
             _u2 = u2;
@@ -43,11 +43,13 @@ namespace uwudles
         /// <param name="attacker"></param>
         /// <param name="target"></param>
         /// <returns>A winner if one exists</returns>
-        private Uwudle AttackCycle(Uwudle attacker, Uwudle target)
+        private async Task<Uwudle> AttackCycle(Uwudle attacker, Uwudle target)
         {
             attacker.AttackAnimation(target.transform);
             Debug.Log($"{attacker}:{attacker.Health.Hp} attacking {target}:{target.Health.Hp}");
-            target.Health.Damage(attacker.Damage);
+            await Task.Delay(_delayTime);
+
+            target.AnimateDamage(attacker.Damage, _delayTime / 1000.0f / 2);
             if (target.Health.Hp == 0)
                 return attacker;
             return null;
@@ -62,10 +64,9 @@ namespace uwudles
             {
                 Uwudle attacker = u1Attacker ? _u1 : _u2;
                 Uwudle target =  u1Attacker ? _u2 : _u1;
-                winner = AttackCycle(attacker, target);
+                winner = await AttackCycle(attacker, target);
 
                 u1Attacker = !u1Attacker;
-                await Task.Delay(_delayTime);
             }
             Debug.Log("Battle OVER :0");
             return winner;

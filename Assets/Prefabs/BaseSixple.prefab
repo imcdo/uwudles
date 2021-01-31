@@ -375,6 +375,36 @@ Transform:
   m_Father: {fileID: 3718268250312770574}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4871449015105135927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4912847067823700050}
+  m_Layer: 0
+  m_Name: ProjectileSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4912847067823700050
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4871449015105135927}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.025, z: 0.418}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7865085983103013298}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5799854117177600646
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,6 +660,7 @@ Transform:
   - {fileID: 1267397523348750636}
   - {fileID: 6998980430168360320}
   - {fileID: 5117768069411924696}
+  - {fileID: 4912847067823700050}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -664,7 +695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68bc1b6f4c4793c4f8da8a58779f1fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 10
+  _hp: 1000
   HpListener:
     m_PersistentCalls:
       m_Calls: []
@@ -717,6 +748,32 @@ MonoBehaviour:
   Portrait: {fileID: 0}
   _hatMountPoint: {fileID: 3887044538410575224}
   _smr: {fileID: 4640762091355002709}
+  _projectilePrefab: {fileID: 701624450534032952, guid: b9a94b2b141786e4fa9cac4dfde5452c, type: 3}
+  _projectileSpawn: {fileID: 4912847067823700050}
+  _damageRoutineCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &7686764381920507479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -729,7 +786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d47a59a76ccd4d4ba4d68586a980db1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleForSize: 10
+  scaleForSize: 1000
 --- !u!136 &1054931911032364323
 CapsuleCollider:
   m_ObjectHideFlags: 0

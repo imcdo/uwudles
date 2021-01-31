@@ -373,6 +373,36 @@ Transform:
   m_Father: {fileID: 3139563574395432362}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5816243961644166072
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7753836374952417187}
+  m_Layer: 0
+  m_Name: ProjectileSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7753836374952417187
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5816243961644166072}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.249, z: 0.402}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6453830700453545347}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5970449811969351481
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,6 +440,7 @@ Transform:
   - {fileID: 6167849491140112002}
   - {fileID: 6847453870578228079}
   - {fileID: 5184285839661903425}
+  - {fileID: 7753836374952417187}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -444,7 +475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68bc1b6f4c4793c4f8da8a58779f1fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 10
+  _hp: 1000
   HpListener:
     m_PersistentCalls:
       m_Calls: []
@@ -494,9 +525,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fac6d48caff4c94e9f234c53686f4a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Portrait: {fileID: 0}
+  Portrait: {fileID: 21300000, guid: 3663c5ea9c1bcef4a9f4dcd1de6b531a, type: 3}
   _hatMountPoint: {fileID: 3288564319526067692}
   _smr: {fileID: 8283810230123528924}
+  _projectilePrefab: {fileID: 701624450534032952, guid: b9a94b2b141786e4fa9cac4dfde5452c, type: 3}
+  _projectileSpawn: {fileID: 7753836374952417187}
+  _damageRoutineCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &6780773598814937708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,7 +566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d47a59a76ccd4d4ba4d68586a980db1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleForSize: 10
+  scaleForSize: 1000
 --- !u!136 &3922576496423571741
 CapsuleCollider:
   m_ObjectHideFlags: 0

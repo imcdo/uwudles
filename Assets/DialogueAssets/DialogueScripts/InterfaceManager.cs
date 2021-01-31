@@ -24,7 +24,7 @@ public class InterfaceManager : MonoBehaviour
     private bool inDialogue;
     private bool dialogueFinished;
 
-    private string dialogueStartPauseTxt = "<pause=.9>";
+    private string dialogueStartPauseTxt = "<pause=.2>";
     private Vector2 startPos;
 
     [System.Serializable] public class DialogueEndEvent : UnityEvent { }
@@ -43,6 +43,7 @@ public class InterfaceManager : MonoBehaviour
         animatedText.onDialogueFinish.AddListener(() => FinishDialogue());
         animatedText.onTextReveal.AddListener(c => PlayVoice(c));
         startPos = dialogueUI.GetComponent<RectTransform>().anchoredPosition;
+        dialogueUI.SetActive(false);
     }
 
     private void Update()
@@ -54,7 +55,6 @@ public class InterfaceManager : MonoBehaviour
             {
                 Sequence s = DOTween.Sequence();
                 s.AppendInterval(.8f);
-                print("Dialogue ");
                 onDialogueEnd.Invoke();
             }
 
@@ -109,10 +109,13 @@ public class InterfaceManager : MonoBehaviour
     }
     private void DeactivateUI()
     {
+        dialogueUI.SetActive(false);
+        /*
         Sequence s = DOTween.Sequence().Append(dialogueUI.GetComponent<RectTransform>().DOAnchorPos(startPos, 1f)).SetEase(Ease.InCubic);
         s.target = dialogueUI.transform;
         dimScreen.GetComponent<CanvasGroup>().DOFade(0, .7f);
         raycast.enabled = false;
+        */
     }
 
     public void FinishDialogue()

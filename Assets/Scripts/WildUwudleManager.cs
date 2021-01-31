@@ -47,7 +47,7 @@ namespace uwudles
         private void SpawnWildUwudle(int spawnId)
         {
             Uwudle uwudle = _builder.BuildRandom();
-            uwudle.transform.position = _spawnPoints[spawnId].position;
+            uwudle.NavAgent.Warp(_spawnPoints[spawnId].position);
             uwudle.transform.rotation = _spawnPoints[spawnId].rotation;
             var wild = uwudle.gameObject.AddComponent<WildUwudle>();
             SetLayerInAllChildren(uwudle.transform, LayerMask.NameToLayer("Enemy Uwudle"));
