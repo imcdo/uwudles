@@ -68,6 +68,10 @@ namespace uwudles
         public void OnSacrificeClicked()
         {
             Debug.Log("Clicked Sacrifice");
+            if(PlayerStats.Instance.NumPartyMembers == 0)
+            {
+                OnQuitMenuClicked();
+            }
             fountainMenuObject.SetActive(false);
             sacrificeMenuObject.SetActive(true);
             SetupSacrificeCanvas();
@@ -87,6 +91,7 @@ namespace uwudles
                     // if()
                     PlayerStats.Instance.NumGuts -= summonCost;
                     Debug.Log("Yuh" + " " + PlayerStats.Instance.NumGuts + " Guts Left");
+
                     uwudleSpawner.SpawnUwudle();
                     OnQuitMenuClicked();
                 }
