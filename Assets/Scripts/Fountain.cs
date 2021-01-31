@@ -39,6 +39,7 @@ namespace uwudles
             fountainMenuObject.SetActive(true);
             menuUp = true;
             PlayerStats.Instance.MouseLook.enabled = false;
+            PlayerStats.Instance.InMenu = true;
             Cursor.lockState = CursorLockMode.None;
             // if(PlayerStats.Instance.NumGuts >= summonCost)
             // {
@@ -108,6 +109,7 @@ namespace uwudles
             }
             sacrificeMenuObject.SetActive(false);
             menuUp = false;
+            PlayerStats.Instance.InMenu = false;
             PlayerStats.Instance.MouseLook.enabled = true;
             Cursor.lockState = CursorLockMode.Locked;
         }
