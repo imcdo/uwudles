@@ -12,8 +12,6 @@ namespace uwudles
     {
         public static readonly IdleStrategy Idle = new IdleStrategy();
 
-        public enum MovementState { Stoped, Moving }
-
         public abstract void Move();
         public virtual void OnMove() { }
         public virtual void Stop() { }
@@ -35,6 +33,9 @@ namespace uwudles
         private float _aRadius = 0;
         public float BehindFactor { set; get; } // between 0 and 1
         public float Spacing { set; get; }
+        public float RotSpeed { set; get; }
+
+        private Coroutine _routine;
 
         public FollowStrategy(NavMeshAgent agent, Transform target)
         {
@@ -81,21 +82,47 @@ namespace uwudles
 
         public override void Move()
         {
-            if (Vector3.Distance(_agent.transform.position, _target.position) > Spacing)
-                MoveAgent();
+            float spacing = CalculateSpacing();
+            if (Vector3.Distance(_agent.transform.position, _target.position) > spacing)
+                MoveAgent(spacing);
         }
 
-        private void MoveAgent()
+        private float CalculateSpacing()
         {
             float tRadius = Mathf.Max(_target.lossyScale.x, _target.lossyScale.y, _target.lossyScale.z) * _tRadius;
             float aRadius = Mathf.Max(_agent.transform.lossyScale.x, _agent.transform.lossyScale.y, _agent.transform.lossyScale.z) * _aRadius;
-            // Debug.Log(aRadius);
+            return (tRadius + aRadius) + Spacing;
+        }
+
+        private void MoveAgent(float spacing)
+        {
             Vector3 followDirection = -(_target.forward * BehindFactor +
                 (_target.position - _agent.transform.position).normalized * (1 - BehindFactor)).normalized;
 
-            Vector3 destination = _target.position + followDirection * Spacing + followDirection * (tRadius + aRadius);
+            Vector3 destination = _target.position + followDirection * spacing;
 
             _agent.destination = destination;
+        }
+
+        private IEnumerator RotateAgentRoutine()
+        {
+            float t = 0;
+            Quaternion startRot = _agent.transform.rotation;
+
+            Vector2 goToAngle = (new Vector2(_target.position.x, _target.position.z) 
+                - new Vector2(_agent.transform.position.x, _agent.transform.position.z)).normalized;
+            Vector2 forward = new Vector2(_agent.transform.forward.x, _agent.transform.forward.z).normalized;
+            float angle = Vector2.SignedAngle(forward, goToAngle);
+
+            Quaternion targetRot = Quaternion.AngleAxis(angle, _agent.transform.up);
+
+            while (t < 1)
+            {
+                _agent.transform.rotation = Quaternion.Slerp(startRot, targetRot, t);
+                yield return null;
+                t += Time.deltaTime * RotSpeed;
+            }
+            _agent.transform.rotation = targetRot;
         }
     }
 
@@ -138,10 +165,7 @@ namespace uwudles
             _agent = agent;
         }
 
-
-        public override void Move()
-        {
-        }
+        public override void Move() {}
 
         public override async void OnMove()
         {

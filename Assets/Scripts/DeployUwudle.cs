@@ -5,13 +5,12 @@ using UnityEngine;
 namespace uwudles {
     public class DeployUwudle : MonoBehaviour
     {
-        [SerializeField] private InventoryController inventory;
         [SerializeField] private PlayerCursor cursor;
         private void Update() {
             // send active uwudle
             if(Input.GetMouseButtonDown(0)){
                 Uwudle targetUwudle = cursor.getTargetUwudle();
-                Uwudle activeUwudle = inventory.getActiveUwudle();
+                Uwudle activeUwudle = InventoryController.Instance.getActiveUwudle();
                 if(targetUwudle != null && activeUwudle != null){
                     teleportUwudle(activeUwudle, targetUwudle);
                 }

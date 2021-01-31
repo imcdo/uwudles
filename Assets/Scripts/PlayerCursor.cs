@@ -20,6 +20,8 @@ namespace uwudles {
                    cursor.SetActive(false); 
                 }  
                 targetUwudle = hit.collider.gameObject;
+
+                // TODO: FIND BAD :'(
                 Transform statCanvas = targetUwudle.transform.Find("StatsCanvas");
                 cursor = statCanvas.Find("Cursor").gameObject;
                 cursor.SetActive(true);
