@@ -525,7 +525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fac6d48caff4c94e9f234c53686f4a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Portrait: {fileID: 21300000, guid: 3663c5ea9c1bcef4a9f4dcd1de6b531a, type: 3}
+  Portrait: {fileID: 21300000, guid: 4c5bb712c7ba26d4e8724284ee140920, type: 3}
   _hatMountPoint: {fileID: 3288564319526067692}
   _smr: {fileID: 8283810230123528924}
   _projectilePrefab: {fileID: 701624450534032952, guid: b9a94b2b141786e4fa9cac4dfde5452c, type: 3}
