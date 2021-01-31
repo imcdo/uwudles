@@ -475,7 +475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68bc1b6f4c4793c4f8da8a58779f1fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 1000
+  _hp: 700
   HpListener:
     m_PersistentCalls:
       m_Calls: []
@@ -530,6 +530,8 @@ MonoBehaviour:
   _smr: {fileID: 8283810230123528924}
   _projectilePrefab: {fileID: 701624450534032952, guid: b9a94b2b141786e4fa9cac4dfde5452c, type: 3}
   _projectileSpawn: {fileID: 7753836374952417187}
+  _MaxDamage: 300
+  _MinSDamage: 100
   _damageRoutineCurve:
     serializedVersion: 2
     m_Curve:
@@ -554,6 +556,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  levelListener:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6780773598814937708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -566,7 +571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d47a59a76ccd4d4ba4d68586a980db1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleForSize: 1000
+  scaleForSize: 800
 --- !u!136 &3922576496423571741
 CapsuleCollider:
   m_ObjectHideFlags: 0

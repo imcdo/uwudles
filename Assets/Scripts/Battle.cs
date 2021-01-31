@@ -53,11 +53,12 @@ namespace uwudles
             Debug.Log($"{attacker}:{attacker.Health.Hp} attacking {target}:{target.Health.Hp}");
             await Task.Delay(_delayTime);
 
-            if (target.Health.Hp - attacker.Damage == 0){
+            int attackerDamage = attacker.Damage;
+            if (target.Health.Hp - attackerDamage <= 0){
                 target.Health.Hp = 0;
                 return attacker;
             }
-            target.AnimateDamage(attacker.Damage, _delayTime / 1000.0f / 2);
+            target.AnimateDamage(attackerDamage, _delayTime / 1000.0f / 2);
             
             return null;
         }
