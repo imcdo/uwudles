@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 
 namespace uwudles
 {
@@ -82,9 +83,12 @@ namespace uwudles
             {
                 OnQuitMenuClicked();
             }
-            fountainMenuObject.SetActive(false);
-            sacrificeMenuObject.SetActive(true);
-            SetupSacrificeCanvas();
+            else
+            {
+                fountainMenuObject.SetActive(false);
+                sacrificeMenuObject.SetActive(true);
+                SetupSacrificeCanvas();
+            }
         }
 
         public void OnRollClicked()
@@ -100,6 +104,7 @@ namespace uwudles
                 {
                     // if()
                     PlayerStats.Instance.NumGuts -= summonCost;
+                    GameScript.Instance.AddCandy(-10);
                     Debug.Log("Yuh" + " " + PlayerStats.Instance.NumGuts + " Guts Left");
 
                     uwudleSpawner.SpawnUwudle();
@@ -128,6 +133,8 @@ namespace uwudles
             {
                 SacrificeFrames[i].gameObject.SetActive(true);
                 Image portrait = SacrificeFrames[i].GetComponentInChildren<Image>();
+                TextMeshProUGUI levelText = SacrificeFrames[i].GetComponentInChildren<TextMeshProUGUI>();
+                levelText.text = "Level: " + PlayerStats.Instance.PartyMembers[i].level;
                 portrait.sprite = PlayerStats.Instance.PartyMembers[i].Portrait;
             }
         }
@@ -152,6 +159,7 @@ namespace uwudles
             Debug.Log("Trying to Sacrifice Minion #" + uwudleNum + 1);
             Debug.Log("numpartymembers" + PlayerStats.Instance.NumPartyMembers);
             Uwudle uwudleToSacrifice = PlayerStats.Instance.PartyMembers[uwudleNum];
+            GameScript.Instance.AddCandy(10 * uwudleToSacrifice.level);
             if(uwudleNum < PlayerStats.Instance.NumPartyMembers - 1)
             {
                 Uwudle nextUwudle = PlayerStats.Instance.PartyMembers[uwudleNum + 1];
@@ -168,6 +176,7 @@ namespace uwudles
             }
             PlayerStats.Instance.PartyMembers.RemoveAt(uwudleNum);
             InventoryController.Instance.removeUwudle(uwudleToSacrifice);
+            
             Destroy(uwudleToSacrifice.gameObject);
             OnQuitMenuClicked();
         }
