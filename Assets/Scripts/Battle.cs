@@ -7,6 +7,7 @@ using System;
 
 namespace uwudles
 {
+    class BattleException : Exception { }
     class Battle
     {
         public enum BattlePhase { Starting, Battling, Done }
@@ -31,6 +32,10 @@ namespace uwudles
             {
                 Uwudle winner = await BattleTask();
                 finishCallback(winner);
+            }
+            catch (BattleException e)
+            {
+                Debug.Log(e);
             } catch (Exception e) {
                 Debug.LogException(e);
                 finishCallback(null);
@@ -45,6 +50,8 @@ namespace uwudles
         /// <returns>A winner if one exists</returns>
         private async Task<Uwudle> AttackCycle(Uwudle attacker, Uwudle target)
         {
+            if (attacker == null || target == null)
+                throw new BattleException();
             if(attacker.Health.Hp == 0)
                 return target;
             else if(target.Health.Hp == 0)

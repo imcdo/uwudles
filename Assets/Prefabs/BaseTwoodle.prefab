@@ -342,6 +342,7 @@ MonoBehaviour:
   _projectileSpawn: {fileID: 1558486966103970887}
   _MaxDamage: 300
   _MinSDamage: 100
+  _poof: {fileID: 4389188875507160536, guid: b77dc6d683aca18489a8d49bd81324a3, type: 3}
   _damageRoutineCurve:
     serializedVersion: 2
     m_Curve:
