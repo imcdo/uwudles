@@ -90,9 +90,14 @@ namespace uwudles
                 else
                 {
                     Debug.Log("Nuh" + " " + PlayerStats.Instance.NumGuts + " Guts Left");
+                    
                     if(PlayerStats.Instance.NumPartyMembers > 0)
                     {
                         OnSacrificeClicked();
+                    }
+                    else
+                    {
+                        OnQuitMenuClicked();
                     }
                 }
             }
