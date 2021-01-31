@@ -55,6 +55,7 @@ public class InterfaceManager : MonoBehaviour
                 Sequence s = DOTween.Sequence();
                 s.AppendInterval(.8f);
                 print("Dialogue ");
+                onDialogueEnd.Invoke();
             }
 
             if (nextDialogue)
