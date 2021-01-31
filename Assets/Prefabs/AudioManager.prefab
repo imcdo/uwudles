@@ -79,6 +79,13 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     playRandomly: 1
+  - name: Forest Theme
+    clip: {fileID: 8300000, guid: 0614d11caf28ec54a99271c91174b9fb, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    playOnAwake: 1
+    playRandomly: 0
   maxTimeBWRandSounds: 30
   minTimeBWRandSounds: 8
   keepPlayingRandom: 1

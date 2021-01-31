@@ -45,13 +45,20 @@ namespace uwudles
         /// <returns>A winner if one exists</returns>
         private async Task<Uwudle> AttackCycle(Uwudle attacker, Uwudle target)
         {
+            if(attacker.Health.Hp == 0)
+                return target;
+            else if(target.Health.Hp == 0)
+                return attacker;
             attacker.AttackAnimation(target.transform);
             Debug.Log($"{attacker}:{attacker.Health.Hp} attacking {target}:{target.Health.Hp}");
             await Task.Delay(_delayTime);
 
-            target.AnimateDamage(attacker.Damage, _delayTime / 1000.0f / 2);
-            if (target.Health.Hp == 0)
+            if (target.Health.Hp - attacker.Damage == 0){
+                target.Health.Hp = 0;
                 return attacker;
+            }
+            target.AnimateDamage(attacker.Damage, _delayTime / 1000.0f / 2);
+            
             return null;
         }
 
