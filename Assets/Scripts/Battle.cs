@@ -43,8 +43,8 @@ namespace uwudles
         /// <returns>A winner if one exists</returns>
         private Uwudle AttackCycle(Uwudle attacker, Uwudle target)
         {
-            // attacker.AttackAnimation(target.transform);
-            // target.Health.Damage(attacker.Damage);
+            attacker.AttackAnimation(target.transform);
+            target.Health.Damage(attacker.Damage);
             if (target.Health.Hp == 0)
                 return attacker;
             return null;

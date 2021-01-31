@@ -25,7 +25,10 @@ namespace uwudles
             foreach(SacrificeMenuPortrait portraitFrame in SacrificeFrames)
             {
                 portraitFrame.gameObject.SetActive(false);
+                Debug.Log(portraitFrame.name);
             }
+            sacrificeMenuObject.SetActive(false);
+
             
             
         }
@@ -63,7 +66,7 @@ namespace uwudles
             fountainMenuObject.SetActive(false);
             if(PlayerStats.Instance.NumPartyMembers >= PlayerStats.Instance.MaxPartySize)
             {
-                sacrificeMenuObject.SetActive(true);
+                OnSacrificeClicked();
             }
             else{
                 if(PlayerStats.Instance.NumGuts >= summonCost)
@@ -79,7 +82,7 @@ namespace uwudles
                     Debug.Log("Nuh" + " " + PlayerStats.Instance.NumGuts + " Guts Left");
                     if(PlayerStats.Instance.NumPartyMembers > 0)
                     {
-
+                        OnSacrificeClicked();
                     }
                 }
             }
@@ -88,7 +91,7 @@ namespace uwudles
         private void SetupSacrificeCanvas()
         {
             Debug.Log(PlayerStats.Instance.NumPartyMembers);
-            for(int i = 0; i < PlayerStats.Instance.NumPartyMembers - 1; ++i)
+            for(int i = 0; i < PlayerStats.Instance.NumPartyMembers; ++i)
             {
                 SacrificeFrames[i].gameObject.SetActive(true);
                 Image portrait = SacrificeFrames[i].GetComponentInChildren<Image>();
@@ -109,6 +112,32 @@ namespace uwudles
             Cursor.lockState = CursorLockMode.Locked;
         }
 
-
+        public void OnSacrificeMinionClicked(int uwudleNum)
+        {
+            Debug.Log("Trying to Sacrifice Minion #" + uwudleNum + 1);
+            Debug.Log("numpartymembers" + PlayerStats.Instance.NumPartyMembers);
+            Uwudle uwudleToSacrifice = PlayerStats.Instance.PartyMembers[uwudleNum];
+            if(uwudleNum < PlayerStats.Instance.NumPartyMembers - 1)
+            {
+                Uwudle nextUwudle = PlayerStats.Instance.PartyMembers[uwudleNum + 1];
+                FollowBrain followBrain = nextUwudle.GetComponent<FollowBrain>();
+                if(uwudleNum == 0)
+                {
+                    Debug.Log("Sacrificing first minion");
+                    nextUwudle.Movement.Strategy = new FollowStrategy(nextUwudle.NavAgent, PlayerStats.Instance.transform);
+                    followBrain.Target = PlayerStats.Instance.transform;
+                }
+                else
+                {  
+                    Debug.Log("Sacrificing minion " + uwudleNum + 1);
+                    nextUwudle.Movement.Strategy = new FollowStrategy(nextUwudle.NavAgent, PlayerStats.Instance.PartyMembers[uwudleNum - 1].transform);
+                    followBrain.Target = PlayerStats.Instance.PartyMembers[uwudleNum - 1].transform;
+                }
+            }
+            PlayerStats.Instance.PartyMembers.RemoveAt(uwudleNum);
+            
+            Destroy(uwudleToSacrifice.gameObject);
+            OnQuitMenuClicked();
+        }
     }
 }
