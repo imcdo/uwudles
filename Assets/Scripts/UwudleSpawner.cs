@@ -31,10 +31,12 @@ namespace uwudles
             FollowBrain followBrain = newWudle.GetComponent<FollowBrain>();
             if(PlayerStats.Instance.NumPartyMembers > 0)
             {
+                newWudle.Movement.Strategy = new FollowStrategy(newWudle.NavAgent, PlayerStats.Instance.PartyMembers[PlayerStats.Instance.NumPartyMembers - 1].transform);
                 followBrain.Target = PlayerStats.Instance.PartyMembers[PlayerStats.Instance.NumPartyMembers - 1].transform;
             }
             else
             {
+                newWudle.Movement.Strategy = new FollowStrategy(newWudle.NavAgent, PlayerStats.Instance.transform);
                 followBrain.Target = PlayerStats.Instance.transform;
             }
             PlayerStats.Instance.PartyMembers.Add(newWudle);

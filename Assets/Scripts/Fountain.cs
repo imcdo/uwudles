@@ -125,13 +125,13 @@ namespace uwudles
                 {
                     Debug.Log("Sacrificing first minion");
                     nextUwudle.Movement.Strategy = new FollowStrategy(nextUwudle.NavAgent, PlayerStats.Instance.transform);
-                    // followBrain.Target = PlayerStats.Instance.transform;
+                    followBrain.Target = PlayerStats.Instance.transform;
                 }
                 else
                 {  
                     Debug.Log("Sacrificing minion " + uwudleNum + 1);
-                    // followBrain.Target = PlayerStats.Instance.PartyMembers[uwudleNum - 1].transform;
                     nextUwudle.Movement.Strategy = new FollowStrategy(nextUwudle.NavAgent, PlayerStats.Instance.PartyMembers[uwudleNum - 1].transform);
+                    followBrain.Target = PlayerStats.Instance.PartyMembers[uwudleNum - 1].transform;
                 }
             }
             PlayerStats.Instance.PartyMembers.RemoveAt(uwudleNum);
