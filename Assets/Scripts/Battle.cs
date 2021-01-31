@@ -25,11 +25,12 @@ namespace uwudles
             Phase = BattlePhase.Starting;
         }
 
-        public async void Start()
+        public async void Start(Action<Uwudle> finishCallback)
         {
             try
             {
                 Uwudle winner = await BattleTask();
+                finishCallback(winner);
             } catch (Exception e) {
                 Debug.LogException(e);
             }

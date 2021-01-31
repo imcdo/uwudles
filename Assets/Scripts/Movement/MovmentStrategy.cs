@@ -182,6 +182,8 @@ namespace uwudles
 
         private async Task RoamTask(CancellationToken cancel)
         {
+            if (RoamTime <= 0)
+                throw new Exception("Need a positive roam time");
             while (!cancel.IsCancellationRequested)
             {
                 Vector3 dir = UnityEngine.Random.insideUnitSphere * RoamRange;

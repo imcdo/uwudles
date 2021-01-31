@@ -60,7 +60,10 @@ namespace uwudles
 
         public void SetSkin(Material skinMat)
         {
-            _smr.materials[0] = skinMat;
+            Material[] mats = new Material[_smr.materials.Length]; 
+            Array.Copy(_smr.materials, mats, _smr.materials.Length);
+            mats[0] = skinMat;
+            _smr.materials = mats;
         }
 
         public void AttackAnimation(Transform target)

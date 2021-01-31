@@ -6,6 +6,7 @@ namespace uwudles {
     public class DeployUwudle : MonoBehaviour
     {
         [SerializeField] private PlayerCursor cursor;
+        [SerializeField] private bool inBattle;
         private void Update() {
             // send active uwudle
             if(Input.GetMouseButtonDown(0)){
@@ -38,5 +39,9 @@ namespace uwudles {
             
             ourUwudle.transform.position = tpPos;
         }
+
+        /* private void StartBattle(){
+
+        } */
     }
 }

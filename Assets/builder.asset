@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 124d219382bcba44184cd21c78b6351e, type: 3}
+  m_Name: builder
+  m_EditorClassIdentifier: 
+  _baseUwudles:
+  - {fileID: 3426377623167058645, guid: 02b2b8530518cf646a5ad9fd223dc815, type: 3}
+  _hats:
+  - {fileID: 919132149155446097, guid: 92f0ba9f21b4d4f43b938450c6a4242d, type: 3}
+  - {fileID: 919132149155446097, guid: 9ccf901d710e13f44a6c0fa51912bdba, type: 3}
+  - {fileID: 919132149155446097, guid: ee398424435ceba4293f56b109846196, type: 3}
+  _uwudleSkins:
+  - {fileID: 2100000, guid: 2ddcd8ad4a85c164a8ad53101a654cd6, type: 2}
+  - {fileID: 2100000, guid: f474cc11f2767d34f9c394f55530b99f, type: 2}
+  - {fileID: 2100000, guid: f360c372a53a4f04abcb373e38531440, type: 2}
