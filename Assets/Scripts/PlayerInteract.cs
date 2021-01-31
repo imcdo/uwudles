@@ -21,10 +21,6 @@ namespace uwudles
             if(!PlayerStats.Instance.InMenu && Input.GetKeyDown("f"))
             {
                 TryInteracting();
-            }
-            if(Input.GetMouseButtonDown(0))
-            {
-                Debug.Log("mouseclick");
                 AudioManager.Instance.playSound("UIClick");
             }
 

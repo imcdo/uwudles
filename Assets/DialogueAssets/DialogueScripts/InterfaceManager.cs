@@ -78,7 +78,7 @@ public class InterfaceManager : MonoBehaviour
 
     public void ActivateDialogue(DialogueData dialogueData)
     {
-        
+        Debug.Log("Activated" + dialogueData);
         ActivateUI();
         animatedText.text = string.Empty;
         raycast.enabled = true;
