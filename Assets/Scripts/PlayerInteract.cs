@@ -22,6 +22,11 @@ namespace uwudles
             {
                 TryInteracting();
             }
+            if(Input.GetMouseButtonDown(0))
+            {
+                Debug.Log("mouseclick");
+                AudioManager.Instance.playSound("UIClick");
+            }
 
 /*
             // lol sorry
