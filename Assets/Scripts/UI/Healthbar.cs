@@ -6,8 +6,7 @@ using TMPro;
 
 namespace uwudles.UI
 {
-
-    [RequireComponent(typeof(RectTransform))]
+    [RequireComponent(typeof(Image))]
     public class Healthbar : MonoBehaviour
     {
         public TextMeshProUGUI healthNum;

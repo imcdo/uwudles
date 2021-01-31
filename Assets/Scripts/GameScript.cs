@@ -112,6 +112,7 @@ public class GameScript : MonoBehaviour
     {
         voicebox.onDialogueEnd.RemoveListener(CandyShowcase);
         candyShowcase.SetActive(true);
+        uwudles.AudioManager.Instance.playSound("Summon");
         StartCoroutine(ExplainCandy());
     }
 

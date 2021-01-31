@@ -8,6 +8,7 @@ namespace uwudles
     public class UwuduleScaleWithHealth : MonoBehaviour
     {
         [SerializeField] private float scaleForSize;
+        [SerializeField] private float minScale;
         private Damagable _health;
         public Damagable Health => _health ? _health : _health = GetComponent<Damagable>();
         private Vector3 _startScale;
@@ -20,7 +21,7 @@ namespace uwudles
 
         private void updateScale(){
             float scale = Health.Hp/scaleForSize;
-            transform.localScale = scale * _startScale;
+            transform.localScale = Vector3.Lerp(minScale * _startScale, _startScale, scale);
         }
     }
 }

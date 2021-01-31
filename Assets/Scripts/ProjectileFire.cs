@@ -13,7 +13,9 @@ namespace uwudles
         [SerializeField] [Range(0, 1)] private float _shootPoint = .5f;
         [SerializeField] private float _explodeLen = .5f;
         [SerializeField] private float _len = 5;
-        [SerializeField] private Color _projectileColor = Color.blue;
+        public Color _projectileColor = Color.blue;
+
+        [SerializeField] Renderer _otherRenderer;
 
         public void Shoot(Vector3 target)
         {
@@ -25,12 +27,14 @@ namespace uwudles
             float t = 0;
             float shootT = len * _shootPoint;
             Material m = GetComponent<Renderer>().material;
-            
+            Material m2 = _otherRenderer.material;
             transform.localScale = _minScale * Vector3.one;
             Vector3 startPos = transform.position;
             Vector3 minScale = _minScale * Vector3.one;
             Vector3 maxScale = _maxScale * Vector3.one;
-            Color c = _projectileColor;
+            m.SetColor("Color_122854f14d5940b1af97e43cdbfbb7df", _projectileColor);
+            m2.SetColor("Color_44eab29d1f85437d8f22173486c8da5e", _projectileColor);
+
             while (t < shootT)
             {
                 transform.localScale = Vector3.Lerp(minScale, maxScale, t / shootT);
@@ -52,7 +56,8 @@ namespace uwudles
             while (t < explodeLen)
             {
                 transform.localScale = Vector3.Lerp(maxScale, explodeScale, t / explodeLen);
-                m.SetVector("Color_63f4b09226cc4af3990ff2683cc7f7be", new Color(c.r, c.g, c.b,  (1 - t / explodeLen)));
+                m.SetColor("Color_122854f14d5940b1af97e43cdbfbb7df", new Color(_projectileColor.r, _projectileColor.g, _projectileColor.b,  (1 - t / explodeLen)));
+                m2.SetColor("Color_44eab29d1f85437d8f22173486c8da5e", new Color(_projectileColor.r, _projectileColor.g, _projectileColor.b,  (1 - t / explodeLen)));
                 yield return null;
                 t += Time.deltaTime;
             }

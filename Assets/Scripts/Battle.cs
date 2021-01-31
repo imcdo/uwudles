@@ -17,7 +17,7 @@ namespace uwudles
 
         public BattlePhase Phase { get; private set; }
 
-        public Battle(Uwudle u1, Uwudle u2, float turnTime = 3)
+        public Battle(Uwudle u1, Uwudle u2, float turnTime = 2)
         {
             _u1 = u1;
             _u2 = u2;
@@ -51,15 +51,16 @@ namespace uwudles
                 return attacker;
             attacker.AttackAnimation(target.transform);
             Debug.Log($"{attacker}:{attacker.Health.Hp} attacking {target}:{target.Health.Hp}");
-            await Task.Delay(_delayTime);
+            await Task.Delay(_delayTime/2);
 
-            int attackerDamage = attacker.Damage;
+            int attackerDamage = attacker.CalcDamage(target.Element);
             if (target.Health.Hp - attackerDamage <= 0){
                 target.Health.Hp = 0;
                 return attacker;
             }
             target.AnimateDamage(attackerDamage, _delayTime / 1000.0f / 2);
-            
+            await Task.Delay(_delayTime/2);
+
             return null;
         }
 
