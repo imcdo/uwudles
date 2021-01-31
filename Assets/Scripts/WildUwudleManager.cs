@@ -13,6 +13,7 @@ namespace uwudles
         [SerializeField] private Transform[] _spawnPoints;
         [SerializeField] private int _maxWandering = 20;
         [SerializeField] private UwudleBuilder _builder;
+        [SerializeField] private LayerMask enemyUwudleLayer;
 
         private HashSet<WildUwudle> _wildUwudles = new HashSet<WildUwudle>();
 
@@ -36,6 +37,7 @@ namespace uwudles
             uwudle.transform.position = _spawnPoints[spawnId].position;
             uwudle.transform.rotation = _spawnPoints[spawnId].rotation;
             var wild = uwudle.gameObject.AddComponent<WildUwudle>();
+            uwudle.gameObject.layer = enemyUwudleLayer;
 
             uwudle.Movement.Strategy = new RoamStrategy(uwudle.NavAgent) { RoamTime=1000, RoamRange=10 };
             

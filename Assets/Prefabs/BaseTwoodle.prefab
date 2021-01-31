@@ -263,6 +263,7 @@ GameObject:
   - component: {fileID: 3426377623167058646}
   - component: {fileID: 3426377623167058640}
   - component: {fileID: 5991504139167560102}
+  - component: {fileID: 1625604930376028456}
   m_Layer: 0
   m_Name: BaseTwoodle
   m_TagString: Untagged
@@ -385,6 +386,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d44ac992c8c4d194dbf7d966832f3efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1625604930376028456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2543858253943755812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d47a59a76ccd4d4ba4d68586a980db1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleForSize: 10
 --- !u!1 &2969913406751759026
 GameObject:
   m_ObjectHideFlags: 0

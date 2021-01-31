@@ -7,13 +7,15 @@ namespace uwudles {
     {
         [SerializeField] private PlayerCursor cursor;
         [SerializeField] private bool inBattle;
+        private Battle currentBattle;
         private void Update() {
             // send active uwudle
-            if(Input.GetMouseButtonDown(0)){
+            if(!inBattle && Input.GetMouseButtonDown(0)){
                 Uwudle targetUwudle = cursor.getTargetUwudle();
                 Uwudle activeUwudle = InventoryController.Instance.getActiveUwudle();
                 if(targetUwudle != null && activeUwudle != null){
                     teleportUwudle(activeUwudle, targetUwudle);
+                    startbattle(activeUwudle, targetUwudle);
                 }
             }
         }
@@ -40,8 +42,20 @@ namespace uwudles {
             ourUwudle.transform.position = tpPos;
         }
 
-        /* private void StartBattle(){
+        private void startbattle(Uwudle ourUwudle, Uwudle target){
+            MovementStrategy ourOldStrat = ourUwudle.Movement.Strategy;
+            MovementStrategy targetOldStrat = target.Movement.Strategy;
+            ourUwudle.Movement.Strategy = MovementStrategy.Idle;
+            target.Movement.Strategy = MovementStrategy.Idle;
+            currentBattle = new Battle(ourUwudle, target);
+            inBattle = true;
+            currentBattle.Start((Uwudle winner) => endBattle(winner, ourUwudle, target, ourOldStrat, targetOldStrat));
+        }
 
-        } */
+        public void endBattle(Uwudle winner, Uwudle ourUwudle, Uwudle target, MovementStrategy ourOldStrat, MovementStrategy targetOldStrat){
+            inBattle = false;
+            ourUwudle.Movement.Strategy = ourOldStrat;
+            target.Movement.Strategy = targetOldStrat;
+        }
     }
 }
