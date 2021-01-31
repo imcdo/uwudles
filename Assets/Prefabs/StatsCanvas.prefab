@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8415974362869759106}
   - component: {fileID: 264055767576042822}
   - component: {fileID: 8881318424170199691}
-  - component: {fileID: 7122497155632789789}
   m_Layer: 5
   m_Name: Health Bar Background
   m_TagString: Untagged
@@ -76,20 +75,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7122497155632789789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1400109813118351768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0ea15143012a574f9927198f7145e88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damagable: {fileID: 0}
-  _displayTime: 0
 --- !u!1 &1789364195744877429
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,7 +408,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &6152985091472819297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,7 +450,6 @@ GameObject:
   - component: {fileID: 33629749379796269}
   - component: {fileID: 8577677326988882656}
   - component: {fileID: 2487196514195074837}
-  - component: {fileID: 7836840342708399247}
   m_Layer: 5
   m_Name: Health Bar Frame
   m_TagString: Untagged
@@ -530,17 +514,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7836840342708399247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7423106916290312396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0ea15143012a574f9927198f7145e88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damagable: {fileID: 0}
-  _displayTime: 0

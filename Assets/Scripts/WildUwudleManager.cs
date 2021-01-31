@@ -56,7 +56,7 @@ namespace uwudles
             
             UI.FaceTransform ft = uwudle.GetComponentInChildren<UI.FaceTransform>();
             if (ft)
-                ft.Target = PlayerStats.Instance.transform;
+                ft.Target = Camera.main.transform;
         }
 
         private void Start()

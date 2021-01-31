@@ -47,14 +47,7 @@ namespace uwudles
 
         private void Update()
         {
-            if (Movement.Speed != 0)
-            {
-                _animator.Play("Walk");
-            }
-            else
-            {
-                _animator.Play("Idle");
-            }
+            _animator.SetFloat("Speed", Movement.Speed);
         }
 
 
@@ -68,7 +61,8 @@ namespace uwudles
 
         public void AttackAnimation(Transform target)
         {
-            _animator.Play("Attack");
+            Debug.Log("attack animation");
+            _animator.SetTrigger("Attack");
         }
     }
 }

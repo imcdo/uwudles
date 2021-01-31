@@ -8,22 +8,51 @@ namespace uwudles
     [CreateAssetMenu(menuName="uwudle/UwudleBuilder")]
     public class UwudleBuilder : ScriptableObject
     {
-        public Uwudle[] _baseUwudles;
+        public Uwudle Twodle;
+        public Uwudle Fourble;
+        public Uwudle Sixple;
+
         public GameObject[] _hats;
-        public Material[] _uwudleSkins;
+        public Material[] PlantTwodleSkins;
+        public Material[] WetTwodleSkins;
+        public Material[] HotTwodleSkins;
+
+        public Material[] PlantFourbleSkins;
+        public Material[] WetFourbleSkins;
+        public Material[] HotFourbleSkins;
+        
+        public Material[] PlantSixpleSkins;
+        public Material[] WetSixpleSkins;
+        public Material[] HotSixpleSkins;
+
         private Random _rand = new Random();
 
         public Uwudle BuildRandom()
         {
-            int baseId = _rand.Next(_baseUwudles.Length);
+            int baseId = _rand.Next(3);
             int hatsId = _rand.Next(-1, _hats.Length);
-            int skinId = _rand.Next(_uwudleSkins.Length);
-            return Build(baseId, hatsId, skinId);
+            int elementId = _rand.Next(3);
+            return Build(baseId, hatsId, elementId);
         }
 
-        public Uwudle Build(int baseId, int hatId, int skinId)
+        public Uwudle Build(int baseId, int hatId, int elementId)
         {
-            Uwudle uwudle = Instantiate(_baseUwudles[baseId]);
+            Uwudle uwudle;
+            switch (baseId)
+            {
+                case 0:
+                    uwudle = Instantiate(Twodle);
+                    break;
+                case 1:
+                    uwudle = Instantiate(Fourble);
+                    break;
+                case 2:
+                    uwudle = Instantiate(Sixple);
+                    break;
+                default:
+                    return null;
+            }
+
             if (hatId != -1)
             {
                 var hat = Instantiate(_hats[hatId], uwudle.HatMountPoint);
@@ -35,7 +64,14 @@ namespace uwudles
                 hat.transform.localPosition = Vector3.zero;
                 hat.transform.localRotation = Quaternion.Euler(0, 90, 0);
             }
-            uwudle.SetSkin(_uwudleSkins[skinId]);
+
+            Material[][] ma = new Material[][] { PlantTwodleSkins, WetTwodleSkins, HotTwodleSkins,
+                                                 PlantFourbleSkins, WetFourbleSkins, HotFourbleSkins,
+                                                 PlantSixpleSkins, WetSixpleSkins, HotSixpleSkins };
+
+            // TODO: Set element
+            Material[] mat = ma[3 * elementId + baseId];
+            uwudle.SetSkin(mat[_rand.Next(mat.Length)]);
 
             return uwudle;
         }
