@@ -130,8 +130,9 @@ namespace uwudles
             {
                 SacrificeFrames[i].gameObject.SetActive(true);
                 Image portrait = SacrificeFrames[i].GetComponentInChildren<Image>();
-                TextMeshProUGUI levelText = SacrificeFrames[i].GetComponentInChildren<TextMeshProUGUI>();
-                levelText.text = "Level: " + PlayerStats.Instance.PartyMembers[i].level;
+                TextMeshProUGUI[] levelText = SacrificeFrames[i].GetComponentsInChildren<TextMeshProUGUI>();
+                levelText[0].text = "Get " + PlayerStats.Instance.PartyMembers[i].level * 10 + " Candies";
+                levelText[1].text = "Level: " + PlayerStats.Instance.PartyMembers[i].level;
                 portrait.sprite = PlayerStats.Instance.PartyMembers[i].Portrait;
             }
         }
