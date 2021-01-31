@@ -695,7 +695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68bc1b6f4c4793c4f8da8a58779f1fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 10
+  _hp: 1000
   HpListener:
     m_PersistentCalls:
       m_Calls: []
@@ -750,6 +750,30 @@ MonoBehaviour:
   _smr: {fileID: 4640762091355002709}
   _projectilePrefab: {fileID: 701624450534032952, guid: b9a94b2b141786e4fa9cac4dfde5452c, type: 3}
   _projectileSpawn: {fileID: 4912847067823700050}
+  _damageRoutineCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &7686764381920507479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -762,7 +786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d47a59a76ccd4d4ba4d68586a980db1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleForSize: 10
+  scaleForSize: 1000
 --- !u!136 &1054931911032364323
 CapsuleCollider:
   m_ObjectHideFlags: 0
