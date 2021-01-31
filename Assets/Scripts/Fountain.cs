@@ -35,12 +35,10 @@ namespace uwudles
         {
             fountainMenuObject.SetActive(false);
             SacrificeFrames = GetComponentsInChildren<SacrificeMenuPortrait>();
-            Debug.Log(SacrificeFrames.Length);
             uwudleSpawner = GetComponent<UwudleSpawner>();
             foreach(SacrificeMenuPortrait portraitFrame in SacrificeFrames)
             {
                 portraitFrame.gameObject.SetActive(false);
-                Debug.Log(portraitFrame.name);
             }
             sacrificeMenuObject.SetActive(false);
         }
