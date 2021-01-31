@@ -1404,5 +1404,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5586711985308839183, guid: f71c805a5c88dca4e98abd98e5e08d0a, type: 3}
+      propertyPath: minTimeBWRandSounds
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f71c805a5c88dca4e98abd98e5e08d0a, type: 3}

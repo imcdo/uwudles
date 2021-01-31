@@ -29,7 +29,7 @@ namespace uwudles{
                     randomPlaySounds.Add(source);
                 }
             }
-
+            StartCoroutine(playRandom());
         }
 
         public void playSound(string soundName){
