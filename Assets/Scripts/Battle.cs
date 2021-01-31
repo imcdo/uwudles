@@ -17,7 +17,7 @@ namespace uwudles
 
         public BattlePhase Phase { get; private set; }
 
-        public Battle(Uwudle u1, Uwudle u2, float turnTime = 1)
+        public Battle(Uwudle u1, Uwudle u2, float turnTime = 10)
         {
             _u1 = u1;
             _u2 = u2;
@@ -66,6 +66,7 @@ namespace uwudles
                 u1Attacker = !u1Attacker;
                 await Task.Delay(_delayTime);
             }
+            Debug.Log("Battle OVER :0");
             return winner;
         }
     }

@@ -196,12 +196,12 @@ namespace uwudles
         public override void OnStop()
         {
             _cancel.Cancel();
-            _cancel.Dispose();
         }
 
         public override void Dispose()
         {
             OnStop();
+            _cancel.Dispose();
         }
     }
 }
