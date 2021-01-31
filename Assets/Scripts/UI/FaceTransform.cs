@@ -10,7 +10,8 @@ namespace uwudles.UI
 
         private void Update()
         {
-            transform.rotation = Quaternion.FromToRotation(Vector3.forward, -Target.forward);
+            if (Target)
+                transform.rotation = Quaternion.FromToRotation(Vector3.forward, -Target.forward);
         }
     }
 }

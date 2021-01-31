@@ -10,14 +10,14 @@ namespace uwudles
     {
         public Uwudle[] _baseUwudles;
         public GameObject[] _hats;
-        public Material[] _uwudleSkins;  
+        public Material[] _uwudleSkins;
+        private Random _rand = new Random();
 
         public Uwudle BuildRandom()
         {
-            Random r = new Random();
-            int baseId = r.Next(_baseUwudles.Length);
-            int hatsId = r.Next(-1, _hats.Length);
-            int skinId = r.Next(_uwudleSkins.Length);
+            int baseId = _rand.Next(_baseUwudles.Length);
+            int hatsId = _rand.Next(-1, _hats.Length);
+            int skinId = _rand.Next(_uwudleSkins.Length);
             return Build(baseId, hatsId, skinId);
         }
 
@@ -28,7 +28,7 @@ namespace uwudles
                 Instantiate(_hats[hatId], uwudle.HatMountPoint);
             uwudle.SetSkin(_uwudleSkins[skinId]);
 
-            return _baseUwudles[0];
+            return uwudle;
         }
     }
 }
