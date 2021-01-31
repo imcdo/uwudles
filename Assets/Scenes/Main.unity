@@ -16603,6 +16603,10 @@ PrefabInstance:
       propertyPath: helloDelays.Array.data[4]
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 738646681595172702, guid: 573ac53c334415945bf239de2c2f0511, type: 3}
+      propertyPath: mouseSensitivity
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 738646681744756154, guid: 573ac53c334415945bf239de2c2f0511, type: 3}
       propertyPath: m_Name
       value: PlayerControllerFPS
