@@ -39,6 +39,7 @@ namespace uwudles
             fountainMenuObject.SetActive(true);
             menuUp = true;
             PlayerStats.Instance.MouseLook.enabled = false;
+            PlayerStats.Instance.InMenu = true;
             Cursor.lockState = CursorLockMode.None;
             // if(PlayerStats.Instance.NumGuts >= summonCost)
             // {
@@ -108,6 +109,7 @@ namespace uwudles
             }
             sacrificeMenuObject.SetActive(false);
             menuUp = false;
+            PlayerStats.Instance.InMenu = false;
             PlayerStats.Instance.MouseLook.enabled = true;
             Cursor.lockState = CursorLockMode.Locked;
         }
@@ -120,18 +122,15 @@ namespace uwudles
             if(uwudleNum < PlayerStats.Instance.NumPartyMembers - 1)
             {
                 Uwudle nextUwudle = PlayerStats.Instance.PartyMembers[uwudleNum + 1];
-                FollowBrain followBrain = nextUwudle.GetComponent<FollowBrain>();
                 if(uwudleNum == 0)
                 {
                     Debug.Log("Sacrificing first minion");
                     nextUwudle.Movement.Strategy = new FollowStrategy(nextUwudle.NavAgent, PlayerStats.Instance.transform);
-                    followBrain.Target = PlayerStats.Instance.transform;
                 }
                 else
                 {  
                     Debug.Log("Sacrificing minion " + uwudleNum + 1);
                     nextUwudle.Movement.Strategy = new FollowStrategy(nextUwudle.NavAgent, PlayerStats.Instance.PartyMembers[uwudleNum - 1].transform);
-                    followBrain.Target = PlayerStats.Instance.PartyMembers[uwudleNum - 1].transform;
                 }
             }
             PlayerStats.Instance.PartyMembers.RemoveAt(uwudleNum);

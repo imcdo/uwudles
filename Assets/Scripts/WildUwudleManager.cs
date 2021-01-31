@@ -13,7 +13,6 @@ namespace uwudles
         [SerializeField] private Transform[] _spawnPoints;
         [SerializeField] private int _maxWandering = 20;
         [SerializeField] private UwudleBuilder _builder;
-        [SerializeField] private LayerMask enemyUwudleLayer;
 
         private HashSet<WildUwudle> _wildUwudles = new HashSet<WildUwudle>();
 
@@ -36,12 +35,12 @@ namespace uwudles
             _wildUwudles.Add(uwudle);
         }
 
-        public static void SetLayerInAllChildren(Transform parent, LayerMask mask)
+        public static void SetLayerInAllChildren(Transform parent, int layer)
         {
-            parent.gameObject.layer = mask;
+            parent.gameObject.layer = layer;
             foreach (Transform child in parent)
             {
-                SetLayerInAllChildren(child, mask);
+                SetLayerInAllChildren(child, layer);
             }
         }
 
@@ -51,7 +50,7 @@ namespace uwudles
             uwudle.transform.position = _spawnPoints[spawnId].position;
             uwudle.transform.rotation = _spawnPoints[spawnId].rotation;
             var wild = uwudle.gameObject.AddComponent<WildUwudle>();
-            SetLayerInAllChildren(uwudle.transform, enemyUwudleLayer);
+            SetLayerInAllChildren(uwudle.transform, LayerMask.NameToLayer("Enemy Uwudle"));
 
             uwudle.Movement.Strategy = new RoamStrategy(uwudle.NavAgent) { RoamTime=1000, RoamRange=10 };
             
