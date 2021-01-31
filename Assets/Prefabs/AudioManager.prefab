@@ -43,4 +43,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac38585a1a6b3f74cbb9049bf67fb46b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: Forest Ambience
+    clip: {fileID: 8300000, guid: aa5a6fad667f880449eff811d752b3b6, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    playOnAwake: 1
+    playRandomly: 0
+  - name: Leaf Rustle 1
+    clip: {fileID: 8300000, guid: a5e2dbd5f92dcc9478c2786b37f939af, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    playRandomly: 1
+  - name: Leaf Rustle 2
+    clip: {fileID: 8300000, guid: 5658ae5a259b11f4aa5312f52c4a5606, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    playRandomly: 1
+  - name: Leaf Rustle 3
+    clip: {fileID: 8300000, guid: 0b8715ff903fa5c4f9fbe71f97810fbf, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    playRandomly: 1
+  - name: Leaf Rustle 4
+    clip: {fileID: 8300000, guid: aae978d49f93d37438182054944bb517, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    playRandomly: 1
+  maxTimeBWRandSounds: 5
+  minTimeBWRandSounds: 1
+  keepPlayingRandom: 1

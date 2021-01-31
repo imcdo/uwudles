@@ -13,5 +13,6 @@ namespace uwudles{
         [Range(.1f, 3f)] public float pitch;
         public bool loop;
         public bool playOnAwake;
+        public bool playRandomly;
     }
 }
