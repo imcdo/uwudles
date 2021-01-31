@@ -45,8 +45,6 @@ namespace uwudles
         {
             Debug.Log("Hi you interacted with the fountain");
             
-
-            
             menuUp = true;
             PlayerStats.Instance.MouseLook.enabled = false;
             PlayerStats.Instance.InMenu = true;
