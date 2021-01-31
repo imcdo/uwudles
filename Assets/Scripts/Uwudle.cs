@@ -26,6 +26,11 @@ namespace uwudles
         public MovementBrain Movement => _mBrain ? _mBrain : _mBrain = GetComponent<MovementBrain>();
         public Sprite Portrait;
 
+        [SerializeField] private Transform _hatMountPoint;
+        [SerializeField] private SkinnedMeshRenderer _smr;
+
+        public Transform HatMountPoint => _hatMountPoint;
+
         public int Damage => 10;
 
         private Animator _animator;
@@ -50,6 +55,12 @@ namespace uwudles
             {
                 _animator.Play("Idle");
             }
+        }
+
+
+        public void SetSkin(Material skinMat)
+        {
+            _smr.materials[0] = skinMat;
         }
 
         public void AttackAnimation(Transform target)

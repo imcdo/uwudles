@@ -394,6 +394,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Portrait: {fileID: 0}
+  _hatMountPoint: {fileID: 2542922357946472279}
+  _smr: {fileID: 5386875140290525022}
 --- !u!114 &7752770976241324236
 MonoBehaviour:
   m_ObjectHideFlags: 0
