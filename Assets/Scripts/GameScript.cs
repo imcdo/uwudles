@@ -15,16 +15,20 @@ public class GameScript : MonoBehaviour
     // DIALOGUE
     [SerializeField]
     private InterfaceManager voicebox;
-    
-    [Header("Opening cutscene")]
 
+
+    [Header("Opening cutscene")]
     public DialogueData[] hellos;
     public float[] helloDelays;
     public int helloIdx = 0;
     public IEnumerator activeHelloLoop;
 
-    [Header("donut touch")]
-    public int candyCount = 0;
+    [Header("Fountain Intro")]
+    public DialogueData fountainIntro;
+    public float candyDelay = 2.0f;
+
+    [Header("Candy Explain")]
+    public DialogueData candyExplain;
 
     // Start is called before the first frame update
     void Start()
@@ -78,13 +82,38 @@ public class GameScript : MonoBehaviour
     {
         StopCoroutine(activeHelloLoop);
         voicebox.onDialogueEnd.RemoveListener(TryHello);
+        fountain.interactState = uwudles.Fountain.InteractState.None;
+
         Debug.Log("Time for fountain intro");
+        voicebox.onDialogueEnd.AddListener(CandyShowcase);
+        voicebox.ActivateDialogue(fountainIntro);
     }
 
-    void EndIntro()
+    void CandyShowcase()
     {
-        voicebox.onDialogueEnd.RemoveListener(EndIntro);
-        Debug.Log("end intro");
+        voicebox.onDialogueEnd.RemoveListener(CandyShowcase);
+        candyShowcase.SetActive(true);
+        StartCoroutine(ExplainCandy());
+    }
+
+    IEnumerator ExplainCandy()
+    {
+        // TA DA
+        candyBar.SetActive(true);
+
+        yield return new WaitForSeconds(candyDelay);
+    
+        SetCandy(10);
+        candyShowcase.SetActive(false);
+        voicebox.onDialogueEnd.AddListener(TimeToPlay);
+        voicebox.ActivateDialogue(candyExplain);
+    }
+
+    void TimeToPlay()
+    {
+        voicebox.onDialogueEnd.RemoveListener(TimeToPlay);
+        fountain.interactState = uwudles.Fountain.InteractState.Normal;
+        Debug.Log("time to playyy");
     }
 
     // Update is called once per frame
@@ -95,13 +124,12 @@ public class GameScript : MonoBehaviour
 
     public void AddCandy(int qty)
     {
-        SetCandy(candyCount + qty);
+        SetCandy(uwudles.PlayerStats.Instance.NumGuts + qty);
     }
 
     public void SetCandy(int qty)
     {
-        candyCount = qty;
-        uwudles.PlayerStats.Instance.NumGuts = candyCount;
-        candyQtyObj.text = candyCount.ToString();
+        uwudles.PlayerStats.Instance.NumGuts = qty;
+        candyQtyObj.text = uwudles.PlayerStats.Instance.NumGuts.ToString();
     }
 }
