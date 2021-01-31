@@ -52,6 +52,8 @@ namespace uwudles
 
         [SerializeField] private int _MaxDamage;
         [SerializeField] private int _MinSDamage;
+        [SerializeField] private Poof _poof;
+
         private int _damage;
         public int Damage {
             set{
@@ -143,6 +145,16 @@ namespace uwudles
 
         public void LevelUp(){
             level = Mathf.Clamp(level + 1, 1, 3);
+        }
+
+        public void PoofWoodle()
+        {
+            if (_poof != null)
+                Instantiate(_poof, transform.position, Quaternion.identity);
+        }
+        private void OnDestroy()
+        {
+            PoofWoodle();
         }
     }
 }

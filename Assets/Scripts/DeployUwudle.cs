@@ -78,7 +78,8 @@ namespace uwudles {
             target.Movement.Strategy = targetOldStrat;
             ourUwudle.Movement.Move();
             target.Movement.Move();
-
+            if (ourUwudle.Health.Hp == 0)
+                ourUwudle.PoofWoodle();
             ourUwudle.Health.Hp = ourUwudle.Health.MaxHp;
             var wild = target.GetComponent<WildUwudle>();
             if (wild && target.Health.Hp == 0){
