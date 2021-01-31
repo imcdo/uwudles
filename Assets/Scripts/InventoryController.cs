@@ -59,8 +59,12 @@ namespace uwudles {
         public void removeUwudle(Uwudle uwudle){
             UI.UwudleUI ui = activeUwudles[uwudle];
             activeUwudles.Remove(uwudle);
-            Destroy(ui);
             orderedUwudles.Remove(uwudle);
+            Destroy(ui);
+        }
+
+        public Uwudle getActiveUwudle(){
+            return activeUwu;
         }
     }
 }
