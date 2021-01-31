@@ -28,7 +28,9 @@ namespace uwudles{
                 if(s.playRandomly){
                     randomPlaySounds.Add(source);
                 }
+                soundDict.Add(s.name, source);
             }
+            
             StartCoroutine(playRandom());
         }
 

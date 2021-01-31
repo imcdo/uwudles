@@ -86,6 +86,13 @@ MonoBehaviour:
     loop: 1
     playOnAwake: 1
     playRandomly: 0
+  - name: UIClick
+    clip: {fileID: 8300000, guid: c8c73ca330b2a324aa3029da50ceba19, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    playRandomly: 0
   maxTimeBWRandSounds: 30
   minTimeBWRandSounds: 8
   keepPlayingRandom: 1

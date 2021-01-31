@@ -103,7 +103,6 @@ namespace uwudles
                 if(PlayerStats.Instance.NumGuts >= summonCost)
                 {
                     // if()
-                    PlayerStats.Instance.NumGuts -= summonCost;
                     GameScript.Instance.AddCandy(-10);
                     Debug.Log("Yuh" + " " + PlayerStats.Instance.NumGuts + " Guts Left");
 
