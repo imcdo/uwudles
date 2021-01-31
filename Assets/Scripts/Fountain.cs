@@ -24,9 +24,7 @@ namespace uwudles
         private DialogueData fountainDialogue;
         void Start()
         {
-            dialogueScript.onDialogueEnd.AddListener(DialogueEndCheck);
             fountainMenuObject.SetActive(false);
-            fountainDialogueObject.SetActive(false);
             SacrificeFrames = GetComponentsInChildren<SacrificeMenuPortrait>();
             Debug.Log(SacrificeFrames.Length);
             uwudleSpawner = GetComponent<UwudleSpawner>();
@@ -36,16 +34,12 @@ namespace uwudles
                 Debug.Log(portraitFrame.name);
             }
             sacrificeMenuObject.SetActive(false);
-
-            
-            
         }
 
         public void DialogueEndCheck()
         {
-            Debug.Log("Yee");
-            fountainDialogueObject.SetActive(false);
             fountainMenuObject.SetActive(true);
+            dialogueScript.onDialogueEnd.RemoveListener(DialogueEndCheck);
         }
         public void DoAction()
         {
@@ -59,8 +53,8 @@ namespace uwudles
             Cursor.lockState = CursorLockMode.None;
             // fountainMenuObject.SetActive(true);
             fountainDialogueObject.SetActive(true);
+            dialogueScript.onDialogueEnd.AddListener(DialogueEndCheck);
             dialogueScript.ActivateDialogue(fountainDialogue);
-            
         }
 
         

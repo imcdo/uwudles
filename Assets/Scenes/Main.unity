@@ -4824,6 +4824,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 50894109020147312, guid: bccdaf9f93b90f84f92ecacc1c4c7b66, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 268195749961790765, guid: bccdaf9f93b90f84f92ecacc1c4c7b66, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -10556,6 +10560,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2af1ae66e26d35f4389f1390eadefa7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  voicebox: {fileID: 1103469579}
+  introDialogue: {fileID: 11400000, guid: d4a932160b011e743bcc262afed0a079, type: 2}
+--- !u!114 &1103469579 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7008556492731203256, guid: bccdaf9f93b90f84f92ecacc1c4c7b66, type: 3}
+  m_PrefabInstance: {fileID: 505919093}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f4b197b34ac9a14491669c470964823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1111149052

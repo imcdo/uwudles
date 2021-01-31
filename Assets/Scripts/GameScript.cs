@@ -5,14 +5,24 @@ using UnityEngine;
 public class GameScript : MonoBehaviour
 {
     [SerializeField]
-    private InterfaceManager dialogueScript;
+    private InterfaceManager voicebox;
     [SerializeField]
-    private DialogueData fountainDialogue;
+    private DialogueData introDialogue;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartGame();
+    }
+
+    void StartGame()
+    {
+        voicebox.onDialogueEnd.AddListener(EndIntro);
+        voicebox.ActivateDialogue(introDialogue);
+    }
+
+    void EndIntro()
+    {
     }
 
     // Update is called once per frame

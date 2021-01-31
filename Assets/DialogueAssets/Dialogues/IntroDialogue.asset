@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5905ab222b975484794373156f70cada, type: 3}
   m_Name: IntroDialogue
   m_EditorClassIdentifier: 
-  conversation: []
+  conversation:
+  - character: {fileID: 11400000, guid: 3a42411ca17404942b71099c6d9f7dd5, type: 2}
+    dialogue: <pause=.2>What si up
+  - character: {fileID: 11400000, guid: 3a42411ca17404942b71099c6d9f7dd5, type: 2}
+    dialogue: afsafasdf
