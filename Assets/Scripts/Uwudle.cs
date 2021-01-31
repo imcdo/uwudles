@@ -28,6 +28,8 @@ namespace uwudles
 
         [SerializeField] private Transform _hatMountPoint;
         [SerializeField] private SkinnedMeshRenderer _smr;
+        [SerializeField] private ProjectileFire _projectilePrefab;
+        [SerializeField] private Transform _projectileSpawn;
 
         public Transform HatMountPoint => _hatMountPoint;
 
@@ -63,6 +65,9 @@ namespace uwudles
         {
             Debug.Log("attack animation");
             _animator.SetTrigger("Attack");
+
+            ProjectileFire p = Instantiate(_projectilePrefab, _projectileSpawn.transform.position, _projectileSpawn.transform.rotation);
+            p.Shoot(target.position);
         }
     }
 }

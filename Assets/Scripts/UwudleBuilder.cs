@@ -69,8 +69,8 @@ namespace uwudles
                                                  PlantFourbleSkins, WetFourbleSkins, HotFourbleSkins,
                                                  PlantSixpleSkins, WetSixpleSkins, HotSixpleSkins };
 
-            // TODO: Set element
-            Material[] mat = ma[3 * elementId + baseId];
+            // TODO: Set element to 
+            Material[] mat = ma[3 * baseId + elementId];
             uwudle.SetSkin(mat[_rand.Next(mat.Length)]);
 
             return uwudle;
