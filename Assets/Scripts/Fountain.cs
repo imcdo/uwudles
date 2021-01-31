@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 
 namespace uwudles
 {
@@ -128,6 +129,8 @@ namespace uwudles
             {
                 SacrificeFrames[i].gameObject.SetActive(true);
                 Image portrait = SacrificeFrames[i].GetComponentInChildren<Image>();
+                TextMeshProUGUI levelText = SacrificeFrames[i].GetComponentInChildren<TextMeshProUGUI>();
+                levelText.text = "Level: " + PlayerStats.Instance.PartyMembers[i].level;
                 portrait.sprite = PlayerStats.Instance.PartyMembers[i].Portrait;
             }
         }
