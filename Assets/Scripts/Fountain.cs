@@ -153,6 +153,7 @@ namespace uwudles
 
         public void OnSacrificeMinionClicked(int uwudleNum)
         {
+            AudioManager.Instance.playSound("Sacrifice");
             Debug.Log("Trying to Sacrifice Minion #" + uwudleNum + 1);
             Debug.Log("numpartymembers" + PlayerStats.Instance.NumPartyMembers);
             Uwudle uwudleToSacrifice = PlayerStats.Instance.PartyMembers[uwudleNum];
