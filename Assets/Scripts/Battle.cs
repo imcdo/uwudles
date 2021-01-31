@@ -46,6 +46,7 @@ namespace uwudles
         private Uwudle AttackCycle(Uwudle attacker, Uwudle target)
         {
             attacker.AttackAnimation(target.transform);
+            Debug.Log($"{attacker}:{attacker.Health.Hp} attacking {target}:{target.Health.Hp}");
             target.Health.Damage(attacker.Damage);
             if (target.Health.Hp == 0)
                 return attacker;
