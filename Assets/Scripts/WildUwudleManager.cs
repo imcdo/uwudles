@@ -30,20 +30,33 @@ namespace uwudles
             _wildUwudles.Remove(uwudle);
         }
 
+        public void Add(WildUwudle uwudle)
+        {
+            _wildUwudles.Add(uwudle);
+        }
+
+        public static void SetLayerInAllChildren(Transform parent, int layer)
+        {
+            parent.gameObject.layer = layer;
+            foreach (Transform child in parent)
+            {
+                SetLayerInAllChildren(child, layer);
+            }
+        }
+
         private void SpawnWildUwudle(int spawnId)
         {
             Uwudle uwudle = _builder.BuildRandom();
             uwudle.transform.position = _spawnPoints[spawnId].position;
             uwudle.transform.rotation = _spawnPoints[spawnId].rotation;
             var wild = uwudle.gameObject.AddComponent<WildUwudle>();
+            SetLayerInAllChildren(uwudle.transform, LayerMask.NameToLayer("Enemy Uwudle"));
 
             uwudle.Movement.Strategy = new RoamStrategy(uwudle.NavAgent) { RoamTime=1000, RoamRange=10 };
             
             UI.FaceTransform ft = uwudle.GetComponentInChildren<UI.FaceTransform>();
             if (ft)
                 ft.Target = PlayerStats.Instance.transform;
-
-            _wildUwudles.Add(wild);
         }
 
         private void Start()

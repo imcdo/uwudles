@@ -15,7 +15,7 @@ namespace uwudles
 
         void Update()
         {
-            if(Input.GetKeyDown("f"))
+            if(!PlayerStats.Instance.InMenu && Input.GetKeyDown("f"))
             {
                 TryInteracting();
             }
