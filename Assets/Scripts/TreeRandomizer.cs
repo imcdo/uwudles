@@ -21,12 +21,12 @@ public class TreeRandomizer : MonoBehaviour
     [ContextMenu("Randomize Trees")]
     private void RandomizeAllTrees()
     {
-        Undo.RecordObjects(treesList.ToArray(), "Randomize Trees");
+        // Undo.RecordObjects(treesList.ToArray(), "Randomize Trees");
         foreach(GameObject tree in treesList)
         {
             MakeTreeRandom(tree);
         }
-        Undo.FlushUndoRecordObjects();
+        // Undo.FlushUndoRecordObjects();
     }
     
     private void MakeTreeRandom(GameObject tree)
