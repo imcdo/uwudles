@@ -10,11 +10,21 @@ namespace uwudles{
         public float attack { get; set; }
         public float xp { get; set; }
         public UwudleType type { get; set; }
-        
-        public UwudleStats(float attack, float xp, UwudleType type){
+        public int level { get; set; }
+        public Damagable Health;
+
+        public UwudleStats(float attack, float xp, UwudleType type, Damagable Health){
             this.attack = attack;
             this.xp = xp;
             this.type = type;
+            level = 0;
+        }
+
+        public UwudleStats(float attack, float xp, UwudleType type, Damagable Health, int level){
+            this.attack = attack;
+            this.xp = xp;
+            this.type = type;
+            this.level = level;
         }
 
         public void addXp(float amount){
@@ -23,6 +33,18 @@ namespace uwudles{
 
         public void resetXp(){
             xp = 0;
+        }
+
+        /// <summary>
+        /// Levels Uwudle up, increases all stats, regen all health, and resets
+        /// xp
+        /// </summary>
+        public void levelUp(){
+            level = (level < 3) ? level + 1 : 3;
+            Health.UpdateMaxHp((int)(Health.MaxHp * 1.5));
+            Health.Hp = Health.MaxHp;
+            xp = 0;
+            attack *= 1.5f;
         }
     }
 
