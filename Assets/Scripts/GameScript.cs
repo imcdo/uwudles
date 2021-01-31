@@ -30,6 +30,25 @@ public class GameScript : MonoBehaviour
     [Header("Candy Explain")]
     public DialogueData candyExplain;
 
+    private bool introDone = false;
+
+    void Update()
+    {
+        if (!introDone && Input.GetKeyDown(KeyCode.RightShift))
+        {
+            introDone = true;
+            fountain.interactState = uwudles.Fountain.InteractState.Normal;
+            StopCoroutine(activeHelloLoop);
+            SetCandy(10);
+            candyBar.SetActive(true);
+
+            voicebox.onDialogueEnd.RemoveListener(TryHello);
+            voicebox.onDialogueEnd.RemoveListener(CandyShowcase);
+            voicebox.onDialogueEnd.RemoveListener(TimeToPlay);
+            voicebox.FinishDialogue();
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -114,12 +133,7 @@ public class GameScript : MonoBehaviour
         voicebox.onDialogueEnd.RemoveListener(TimeToPlay);
         fountain.interactState = uwudles.Fountain.InteractState.Normal;
         Debug.Log("time to playyy");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        introDone = true;
     }
 
     public void AddCandy(int qty)
