@@ -33,6 +33,7 @@ namespace uwudles
                 finishCallback(winner);
             } catch (Exception e) {
                 Debug.LogException(e);
+                finishCallback(null);
             }
         }
 
