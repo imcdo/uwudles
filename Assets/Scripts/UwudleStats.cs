@@ -12,6 +12,8 @@ namespace uwudles{
         public UwudleType type { get; set; }
         public int level { get; set; }
         public Damagable Health;
+        
+        public int sellCost {get; set;}
 
         public UwudleStats(float attack, float xp, UwudleType type, Damagable Health){
             this.attack = attack;

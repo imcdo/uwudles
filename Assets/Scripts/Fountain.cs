@@ -82,9 +82,12 @@ namespace uwudles
             {
                 OnQuitMenuClicked();
             }
-            fountainMenuObject.SetActive(false);
-            sacrificeMenuObject.SetActive(true);
-            SetupSacrificeCanvas();
+            else
+            {
+                fountainMenuObject.SetActive(false);
+                sacrificeMenuObject.SetActive(true);
+                SetupSacrificeCanvas();
+            }
         }
 
         public void OnRollClicked()
