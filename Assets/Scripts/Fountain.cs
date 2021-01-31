@@ -104,6 +104,7 @@ namespace uwudles
                 {
                     // if()
                     PlayerStats.Instance.NumGuts -= summonCost;
+                    GameScript.Instance.AddCandy(-10);
                     Debug.Log("Yuh" + " " + PlayerStats.Instance.NumGuts + " Guts Left");
 
                     uwudleSpawner.SpawnUwudle();
@@ -158,6 +159,7 @@ namespace uwudles
             Debug.Log("Trying to Sacrifice Minion #" + uwudleNum + 1);
             Debug.Log("numpartymembers" + PlayerStats.Instance.NumPartyMembers);
             Uwudle uwudleToSacrifice = PlayerStats.Instance.PartyMembers[uwudleNum];
+            GameScript.Instance.AddCandy(10 * uwudleToSacrifice.level);
             if(uwudleNum < PlayerStats.Instance.NumPartyMembers - 1)
             {
                 Uwudle nextUwudle = PlayerStats.Instance.PartyMembers[uwudleNum + 1];
@@ -174,6 +176,7 @@ namespace uwudles
             }
             PlayerStats.Instance.PartyMembers.RemoveAt(uwudleNum);
             InventoryController.Instance.removeUwudle(uwudleToSacrifice);
+            
             Destroy(uwudleToSacrifice.gameObject);
             OnQuitMenuClicked();
         }
