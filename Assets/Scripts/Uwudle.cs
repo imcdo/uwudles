@@ -7,10 +7,12 @@ using UnityEngine.AI;
 
 namespace uwudles
 {
+    public enum Element { Fire, Water, Grass }
 
     [RequireComponent(typeof(Damagable))]
     [RequireComponent(typeof(NavMeshAgent))]
     [RequireComponent(typeof(MovementBrain))]
+    [RequireComponent(typeof(Animator))]
     public class Uwudle : MonoBehaviour
     {
         private Damagable _health;
@@ -23,9 +25,36 @@ namespace uwudles
         private MovementBrain _mBrain;
         public MovementBrain Movement => _mBrain ? _mBrain : _mBrain = GetComponent<MovementBrain>();
         public Sprite Portrait;
+
+        public int Damage => 10;
+
+        private Animator _animator;
+
+        private void Awake()
+        {
+            _animator = GetComponent<Animator>();
+        }
+
         private void Start()
         {
             Movement.Move();
+        }
+
+        private void Update()
+        {
+            if (Movement.Speed != 0)
+            {
+                _animator.Play("Walk");
+            }
+            else
+            {
+                _animator.Play("Idle");
+            }
+        }
+
+        public void AttackAnimation(Transform target)
+        {
+            _animator.Play("Attack");
         }
     }
 }

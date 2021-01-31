@@ -7,8 +7,11 @@ namespace uwudles
 {
     public class MovementBrain : MonoBehaviour
     {
-        public MovementStrategy.MovementState MovementState { get; private set; }
+        public enum MovementState { Stoped, Moving }
+        public MovementState BrainState { get; private set; }
 
+        public float Speed { get; private set; }
+        private Vector3 _prevPos;
 
         private MovementStrategy _strategy;
         public MovementStrategy Strategy
@@ -24,24 +27,35 @@ namespace uwudles
 
         public void Move()
         {
-            if (MovementState != MovementStrategy.MovementState.Moving)
+            if (BrainState != MovementState.Moving)
                 Strategy.OnMove();
-            MovementState = MovementStrategy.MovementState.Moving;
+            BrainState = MovementState.Moving;
             Strategy.Move();
         }
         
         public void Stop()
         {
-            if (MovementState != MovementStrategy.MovementState.Stoped)
+            if (BrainState != MovementState.Stoped)
                 Strategy.OnStop();
-            MovementState = MovementStrategy.MovementState.Stoped;
+            BrainState = MovementState.Stoped;
             Strategy.Stop();
+        }
+
+        private void Awake()
+        {
+            _prevPos = transform.position;
         }
 
         public void Update()
         {
-            if (MovementState == MovementStrategy.MovementState.Moving)
+            if (BrainState == MovementState.Moving)
                 Strategy.Move();
+        }
+
+        public void FixedUpdate()
+        {
+            Speed = (transform.position - _prevPos).magnitude / Time.fixedDeltaTime;
+            _prevPos = transform.position;
         }
 
         public void OnDestroy()
