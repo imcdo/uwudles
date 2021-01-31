@@ -745,7 +745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fac6d48caff4c94e9f234c53686f4a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Portrait: {fileID: 0}
+  Portrait: {fileID: 21300000, guid: 07bc41dc9a4087c428feb028147ac33e, type: 3}
   _hatMountPoint: {fileID: 3887044538410575224}
   _smr: {fileID: 4640762091355002709}
   _projectilePrefab: {fileID: 701624450534032952, guid: b9a94b2b141786e4fa9cac4dfde5452c, type: 3}
@@ -974,6 +974,14 @@ PrefabInstance:
     - target: {fileID: 6152985091472819296, guid: c4a160c12944a194eb269f6bca988c7e, type: 3}
       propertyPath: m_SizeDelta.y
       value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6152985091472819296, guid: c4a160c12944a194eb269f6bca988c7e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.0025
+      objectReference: {fileID: 0}
+    - target: {fileID: 6152985091472819296, guid: c4a160c12944a194eb269f6bca988c7e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.0025
       objectReference: {fileID: 0}
     - target: {fileID: 6152985091472819296, guid: c4a160c12944a194eb269f6bca988c7e, type: 3}
       propertyPath: m_LocalPosition.x
