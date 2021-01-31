@@ -31,7 +31,7 @@ namespace uwudles
 
         public Transform HatMountPoint => _hatMountPoint;
 
-        public int Damage => 10;
+        public int Damage => 1;
 
         private Animator _animator;
 
@@ -47,25 +47,22 @@ namespace uwudles
 
         private void Update()
         {
-            if (Movement.Speed != 0)
-            {
-                _animator.Play("Walk");
-            }
-            else
-            {
-                _animator.Play("Idle");
-            }
+            _animator.SetFloat("Speed", Movement.Speed);
         }
 
 
         public void SetSkin(Material skinMat)
         {
-            _smr.materials[0] = skinMat;
+            Material[] mats = new Material[_smr.materials.Length]; 
+            Array.Copy(_smr.materials, mats, _smr.materials.Length);
+            mats[0] = skinMat;
+            _smr.materials = mats;
         }
 
         public void AttackAnimation(Transform target)
         {
-            _animator.Play("Attack");
+            Debug.Log("attack animation");
+            _animator.SetTrigger("Attack");
         }
     }
 }

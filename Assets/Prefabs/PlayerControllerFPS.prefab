@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 931871463}
   - component: {fileID: 394674866}
   - component: {fileID: 394674867}
+  - component: {fileID: 1784784932010221932}
   m_Layer: 9
   m_Name: PlayerControllerFPS
   m_TagString: Untagged
@@ -272,6 +273,20 @@ MonoBehaviour:
   MouseLook: {fileID: 738646681595172702}
   InMenu: 0
   MaxPartySize: 3
+--- !u!114 &1784784932010221932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738646681744756154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6da44be37b065704aaf72a0487e50395, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursor: {fileID: 2776930374587807076}
+  inBattle: 0
 --- !u!1 &738646681763345175
 GameObject:
   m_ObjectHideFlags: 0

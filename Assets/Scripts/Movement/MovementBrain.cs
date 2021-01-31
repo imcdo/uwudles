@@ -27,6 +27,8 @@ namespace uwudles
 
         public void Move()
         {
+            if (Strategy == null) return;
+
             if (BrainState != MovementState.Moving)
                 Strategy.OnMove();
             BrainState = MovementState.Moving;
@@ -60,7 +62,7 @@ namespace uwudles
 
         public void OnDestroy()
         {
-            Strategy.Dispose();
+            Strategy?.Dispose();
         }
     }
 }

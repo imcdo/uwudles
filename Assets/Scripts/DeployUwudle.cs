@@ -6,13 +6,15 @@ namespace uwudles {
     public class DeployUwudle : MonoBehaviour
     {
         [SerializeField] private PlayerCursor cursor;
+        [SerializeField] private bool inBattle;
+        private Battle currentBattle;
         private void Update() {
             // send active uwudle
-            if(Input.GetMouseButtonDown(0)){
+            if(!inBattle && Input.GetMouseButtonDown(0)){
                 Uwudle targetUwudle = cursor.getTargetUwudle();
                 Uwudle activeUwudle = InventoryController.Instance.getActiveUwudle();
                 if(targetUwudle != null && activeUwudle != null){
-                    teleportUwudle(activeUwudle, targetUwudle);
+                    startbattle(activeUwudle, targetUwudle);
                 }
             }
         }
@@ -35,8 +37,44 @@ namespace uwudles {
             // ensure that teleport position is infront of the target uwudle
             Vector3 tpPos = target.transform.position;
             tpPos += boundsOffset * target.transform.forward;
+            ourUwudle.NavAgent.Warp(tpPos);
             
-            ourUwudle.transform.position = tpPos;
+            ourUwudle.NavAgent.updateRotation = false;
+            target.NavAgent.updateRotation = false;
+
+            ourUwudle.transform.LookAt(target.transform.position);
+            target.transform.LookAt(ourUwudle.transform.position);
+
+            ourUwudle.NavAgent.updateRotation = true;
+            target.NavAgent.updateRotation = true;
+        }
+
+        private void startbattle(Uwudle ourUwudle, Uwudle target){
+            MovementStrategy ourOldStrat = ourUwudle.Movement.Strategy;
+            MovementStrategy targetOldStrat = target.Movement.Strategy;
+            ourUwudle.Movement.Stop();
+            target.Movement.Stop();
+            ourUwudle.Movement.Strategy = MovementStrategy.Idle;
+            target.Movement.Strategy = MovementStrategy.Idle;
+            teleportUwudle(ourUwudle, target);
+
+            currentBattle = new Battle(ourUwudle, target);
+            inBattle = true;
+            currentBattle.Start((Uwudle winner) => endBattle(winner, ourUwudle, target, ourOldStrat, targetOldStrat));
+        }
+
+        public void endBattle(Uwudle winner, Uwudle ourUwudle, Uwudle target, MovementStrategy ourOldStrat, MovementStrategy targetOldStrat){
+            inBattle = false;
+            ourUwudle.Movement.Strategy = ourOldStrat;
+            target.Movement.Strategy = targetOldStrat;
+            ourUwudle.Movement.Move();
+            target.Movement.Move();
+
+            ourUwudle.Health.Hp = ourUwudle.Health.MaxHp;
+
+            var wild = target.GetComponent<WildUwudle>();
+            if (wild && target.Health.Hp == 0)
+                wild.Kill();
         }
     }
 }

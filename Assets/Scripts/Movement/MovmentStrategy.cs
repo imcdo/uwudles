@@ -138,6 +138,18 @@ namespace uwudles
             _target = target;
         }
 
+        public override void OnMove()
+        {
+            _agent.isStopped = false;
+            base.OnMove();
+        }
+
+        public override void OnStop()
+        {
+            _agent.isStopped = true;
+            base.OnStop();
+        }
+
         public override void Move()
         {
             if (Vector3.Distance(_agent.transform.position, _target.position) > Offset.magnitude)
@@ -157,8 +169,7 @@ namespace uwudles
         public int RoamTime { set; get; }
         public float RoamRange { set; get; }
         private NavMeshAgent _agent;
-        private readonly CancellationTokenSource _cancel = new CancellationTokenSource();
-        private Task _roamHandle;
+        private CancellationTokenSource _cancel;
 
         public RoamStrategy(NavMeshAgent agent)
         {
@@ -169,9 +180,12 @@ namespace uwudles
 
         public override async void OnMove()
         {
+            _agent.isStopped = false;
+            _cancel = new CancellationTokenSource();
             try
             {
                 await RoamTask(_cancel.Token);
+                _cancel.Dispose();
             }
             catch (TaskCanceledException) { }
             catch (Exception e)
@@ -182,6 +196,8 @@ namespace uwudles
 
         private async Task RoamTask(CancellationToken cancel)
         {
+            if (RoamTime <= 0)
+                throw new Exception("Need a positive roam time");
             while (!cancel.IsCancellationRequested)
             {
                 Vector3 dir = UnityEngine.Random.insideUnitSphere * RoamRange;
@@ -194,12 +210,13 @@ namespace uwudles
         public override void OnStop()
         {
             _cancel.Cancel();
-            _cancel.Dispose();
+            _agent.isStopped = true;
         }
 
         public override void Dispose()
         {
-            OnStop();
+            _cancel.Cancel();
+            _cancel.Dispose();
         }
     }
 }

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 124d219382bcba44184cd21c78b6351e, type: 3}
+  m_Name: builder
+  m_EditorClassIdentifier: 
+  Twodle: {fileID: 3426377623167058645, guid: 02b2b8530518cf646a5ad9fd223dc815, type: 3}
+  Fourble: {fileID: 6780773598814937709, guid: 17cbcdf603ba1614c8299e2aac859636, type: 3}
+  Sixple: {fileID: 7686764381920507476, guid: 2ce844d29be0d86419d82a5c5c950ecc, type: 3}
+  _hats:
+  - {fileID: 919132149155446097, guid: 92f0ba9f21b4d4f43b938450c6a4242d, type: 3}
+  - {fileID: 919132149155446097, guid: 9ccf901d710e13f44a6c0fa51912bdba, type: 3}
+  - {fileID: 919132149155446097, guid: ee398424435ceba4293f56b109846196, type: 3}
+  PlantTwodleSkins:
+  - {fileID: 2100000, guid: cd7e9b976354cf8408cf08c1c19bc3c7, type: 2}
+  WetTwodleSkins:
+  - {fileID: 2100000, guid: afa4ad2e58ec6ab4d8a0a0a4a9b14ee7, type: 2}
+  HotTwodleSkins:
+  - {fileID: 2100000, guid: 00d4eeafee413e24887552813b69e7f7, type: 2}
+  PlantFourbleSkins:
+  - {fileID: 2100000, guid: a3894104c47fb7647815d9230ff350f8, type: 2}
+  WetFourbleSkins:
+  - {fileID: 2100000, guid: d17d7e79ce7197644bd7a8b1df272eb1, type: 2}
+  HotFourbleSkins:
+  - {fileID: 2100000, guid: 30784d320f18649498f3dce7c80c6eea, type: 2}
+  PlantSixpleSkins:
+  - {fileID: 2100000, guid: fc9c5d66e23b3064d812cf35a24528ed, type: 2}
+  WetSixpleSkins:
+  - {fileID: 2100000, guid: 772aa747955c0684aa23840d99aa73d8, type: 2}
+  HotSixpleSkins:
+  - {fileID: 2100000, guid: bae9e6211f4729747bd91601c2052feb, type: 2}

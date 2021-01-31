@@ -40,7 +40,7 @@ namespace uwudles {
         /// <returns>The GameObject that represents the targeted enemy
         /// uwudle. Will return null if no enemy is being targeted</returns>
         public Uwudle getTargetUwudle(){
-            return targetUwudle.GetComponent<Uwudle>();
+            return (targetUwudle == null) ? null : targetUwudle.GetComponent<Uwudle>();
         }
 
         private void OnDrawGizmos() {

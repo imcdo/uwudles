@@ -55,12 +55,19 @@ public class InterfaceManager : MonoBehaviour
                 Sequence s = DOTween.Sequence();
                 s.AppendInterval(.8f);
                 print("Dialogue ");
+                onDialogueEnd.Invoke();
             }
 
             if (nextDialogue)
             {
-                animatedText.ReadText(currentDialogue.conversation[dialogueIndex].dialogue);
-                dialogueFinished = false;
+                if(currentDialogue.conversation[dialogueIndex].dialogue == null)
+                {
+                    dialogueFinished = true;
+                }
+                else{
+                    animatedText.ReadText(currentDialogue.conversation[dialogueIndex].dialogue);
+                    dialogueFinished = false;
+                }
             }
         }
         else if((Input.GetKey(KeyCode.Space) || Input.GetMouseButtonDown(0)) && inDialogue && !dialogueFinished)

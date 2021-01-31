@@ -30,7 +30,7 @@ namespace uwudles {
         private void playerScroll(){
             float scroll = Input.GetAxis("Mouse ScrollWheel");
             if(activeUwu == null){
-                return;
+                activeUwu = orderedUwudles[currentIndex];
             }
             activeUwudles[activeUwu].enableOutline(false);
             if(scroll < 0){
@@ -54,13 +54,26 @@ namespace uwudles {
             ui.uwudle = uwudle;
             ui.transform.SetParent(uwudleUIContainer);
             activeUwudles.Add(uwudle, ui);
+      
+            if(orderedUwudles.Count == 1){
+                currentIndex = 0;
+                activeUwu = orderedUwudles[currentIndex];
+            }
         }
 
         public void removeUwudle(Uwudle uwudle){
+            Debug.Log("remove uwudleUI");
             UI.UwudleUI ui = activeUwudles[uwudle];
             activeUwudles.Remove(uwudle);
             orderedUwudles.Remove(uwudle);
-            Destroy(ui);
+            Destroy(ui.gameObject);
+
+            currentIndex = 0;
+            if(orderedUwudles.Count > 0){
+                activeUwu = orderedUwudles[currentIndex];
+            }else{
+                activeUwu = null;
+            }
         }
 
         public Uwudle getActiveUwudle(){

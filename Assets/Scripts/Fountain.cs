@@ -13,12 +13,20 @@ namespace uwudles
         private GameObject fountainMenuObject;
         [SerializeField]
         private GameObject sacrificeMenuObject;
+        [SerializeField]
+        private GameObject fountainDialogueObject;
         private bool menuUp = false;
         private SacrificeMenuPortrait[] SacrificeFrames;
         private UwudleSpawner uwudleSpawner;
+        [SerializeField]
+        private InterfaceManager dialogueScript;
+        [SerializeField]
+        private DialogueData fountainDialogue;
         void Start()
         {
+            dialogueScript.onDialogueEnd.AddListener(DialogueEndCheck);
             fountainMenuObject.SetActive(false);
+            fountainDialogueObject.SetActive(false);
             SacrificeFrames = GetComponentsInChildren<SacrificeMenuPortrait>();
             Debug.Log(SacrificeFrames.Length);
             uwudleSpawner = GetComponent<UwudleSpawner>();
@@ -32,29 +40,38 @@ namespace uwudles
             
             
         }
+
+        public void DialogueEndCheck()
+        {
+            Debug.Log("Yee");
+            fountainDialogueObject.SetActive(false);
+            fountainMenuObject.SetActive(true);
+        }
         public void DoAction()
         {
             Debug.Log("Hi you interacted with the fountain");
             
-            fountainMenuObject.SetActive(true);
+
+            
             menuUp = true;
             PlayerStats.Instance.MouseLook.enabled = false;
+            PlayerStats.Instance.InMenu = true;
             Cursor.lockState = CursorLockMode.None;
-            // if(PlayerStats.Instance.NumGuts >= summonCost)
-            // {
-                // PlayerStats.Instance.NumGuts -= summonCost;
-                // Debug.Log("Yuh" + " " + PlayerStats.Instance.NumGuts + " Guts Left");
-                
-            // }
-            // else
-            // {
-            //     Debug.Log("Nuh" + " " + PlayerStats.Instance.NumGuts + " Guts Left");
-            // }
+            // fountainMenuObject.SetActive(true);
+            fountainDialogueObject.SetActive(true);
+            dialogueScript.ActivateDialogue(fountainDialogue);
+            
         }
+
+        
 
         public void OnSacrificeClicked()
         {
             Debug.Log("Clicked Sacrifice");
+            if(PlayerStats.Instance.NumPartyMembers == 0)
+            {
+                OnQuitMenuClicked();
+            }
             fountainMenuObject.SetActive(false);
             sacrificeMenuObject.SetActive(true);
             SetupSacrificeCanvas();
@@ -74,6 +91,7 @@ namespace uwudles
                     // if()
                     PlayerStats.Instance.NumGuts -= summonCost;
                     Debug.Log("Yuh" + " " + PlayerStats.Instance.NumGuts + " Guts Left");
+
                     uwudleSpawner.SpawnUwudle();
                     OnQuitMenuClicked();
                 }
@@ -107,7 +125,9 @@ namespace uwudles
                 portraitFrame.gameObject.SetActive(false);
             }
             sacrificeMenuObject.SetActive(false);
+            fountainDialogueObject.SetActive(false);
             menuUp = false;
+            PlayerStats.Instance.InMenu = false;
             PlayerStats.Instance.MouseLook.enabled = true;
             Cursor.lockState = CursorLockMode.Locked;
         }
@@ -120,22 +140,19 @@ namespace uwudles
             if(uwudleNum < PlayerStats.Instance.NumPartyMembers - 1)
             {
                 Uwudle nextUwudle = PlayerStats.Instance.PartyMembers[uwudleNum + 1];
-                FollowBrain followBrain = nextUwudle.GetComponent<FollowBrain>();
                 if(uwudleNum == 0)
                 {
                     Debug.Log("Sacrificing first minion");
                     nextUwudle.Movement.Strategy = new FollowStrategy(nextUwudle.NavAgent, PlayerStats.Instance.transform);
-                    followBrain.Target = PlayerStats.Instance.transform;
                 }
                 else
                 {  
                     Debug.Log("Sacrificing minion " + uwudleNum + 1);
                     nextUwudle.Movement.Strategy = new FollowStrategy(nextUwudle.NavAgent, PlayerStats.Instance.PartyMembers[uwudleNum - 1].transform);
-                    followBrain.Target = PlayerStats.Instance.PartyMembers[uwudleNum - 1].transform;
                 }
             }
             PlayerStats.Instance.PartyMembers.RemoveAt(uwudleNum);
-            
+            InventoryController.Instance.removeUwudle(uwudleToSacrifice);
             Destroy(uwudleToSacrifice.gameObject);
             OnQuitMenuClicked();
         }

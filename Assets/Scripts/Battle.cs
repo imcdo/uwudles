@@ -17,7 +17,7 @@ namespace uwudles
 
         public BattlePhase Phase { get; private set; }
 
-        public Battle(Uwudle u1, Uwudle u2, float turnTime = 1)
+        public Battle(Uwudle u1, Uwudle u2, float turnTime = 5)
         {
             _u1 = u1;
             _u2 = u2;
@@ -25,13 +25,15 @@ namespace uwudles
             Phase = BattlePhase.Starting;
         }
 
-        public async void Start()
+        public async void Start(Action<Uwudle> finishCallback)
         {
             try
             {
                 Uwudle winner = await BattleTask();
+                finishCallback(winner);
             } catch (Exception e) {
                 Debug.LogException(e);
+                finishCallback(null);
             }
         }
 
@@ -44,6 +46,7 @@ namespace uwudles
         private Uwudle AttackCycle(Uwudle attacker, Uwudle target)
         {
             attacker.AttackAnimation(target.transform);
+            Debug.Log($"{attacker}:{attacker.Health.Hp} attacking {target}:{target.Health.Hp}");
             target.Health.Damage(attacker.Damage);
             if (target.Health.Hp == 0)
                 return attacker;
@@ -64,6 +67,7 @@ namespace uwudles
                 u1Attacker = !u1Attacker;
                 await Task.Delay(_delayTime);
             }
+            Debug.Log("Battle OVER :0");
             return winner;
         }
     }
