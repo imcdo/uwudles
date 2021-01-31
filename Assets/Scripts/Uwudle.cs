@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using System.Threading.Tasks;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 namespace uwudles
 {
@@ -92,6 +93,22 @@ namespace uwudles
                 t += Time.deltaTime;
             }
             Health.Hp = hp;
+        }
+
+        private int _level = 1;
+        public int level {
+            private set{
+                _level = value;
+                levelListener.Invoke();
+            }
+            get{
+                return _level;
+            }
+        }
+        public UnityEvent levelListener = new UnityEvent();
+
+        public void LevelUp(){
+            level = Mathf.Clamp(level + 1, 1, 3);
         }
     }
 }
