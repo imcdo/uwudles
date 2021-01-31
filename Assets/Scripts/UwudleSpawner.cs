@@ -32,6 +32,7 @@ namespace uwudles
             newWudle.gameObject.name = "uwudle" + PlayerStats.Instance.NumPartyMembers;
             newWudle.gameObject.SetActive(true);
             Debug.Log("Spawned an Uwudle, numPartyMembers: " + PlayerStats.Instance.NumPartyMembers);
+            InventoryController.Instance.addUwudle(newWudle);
         }
     }
 }

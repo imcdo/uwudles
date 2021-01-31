@@ -25,7 +25,16 @@ namespace uwudles
         {
             Uwudle uwudle = Instantiate(_baseUwudles[baseId]);
             if (hatId != -1)
-                Instantiate(_hats[hatId], uwudle.HatMountPoint);
+            {
+                var hat = Instantiate(_hats[hatId], uwudle.HatMountPoint);
+                hat.transform.localScale = new Vector3(
+                        hat.transform.localScale.x / uwudle.HatMountPoint.transform.lossyScale.x,
+                        hat.transform.localScale.y / uwudle.HatMountPoint.transform.lossyScale.y,
+                        hat.transform.localScale.z / uwudle.HatMountPoint.transform.lossyScale.z
+                    );
+                hat.transform.localPosition = Vector3.zero;
+                hat.transform.localRotation = Quaternion.Euler(0, 90, 0);
+            }
             uwudle.SetSkin(_uwudleSkins[skinId]);
 
             return uwudle;
